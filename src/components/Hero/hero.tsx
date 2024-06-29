@@ -8,12 +8,24 @@ const Hero = () => {
       <section className="bg-white dark:bg-gray-900 content-center h-[calc(100vh-48px)]">
         <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
           <div className="hidden lg:flex justify-center items-center lg:col-span-5 lg:mt-0">
+            {/* Desktop View */}
             <Image
-              className="object-cover object-center rounded-full shadow-lg border-4 border-white dark:border-gray-900"
+              className="object-cover object-center rounded-full shadow-lg"
               src={data.profileImg}
               alt="Avatar"
               width={350}
               height={350}
+              priority
+            />
+          </div>
+          {/* Mobile View */}
+          <div className="flex justify-center lg:hidden mb-20">
+            <Image
+              className="object-cover object-center rounded-full shadow-lg"
+              src={data.profileImg}
+              alt="Avatar"
+              width={250}
+              height={250}
               priority
             />
           </div>
