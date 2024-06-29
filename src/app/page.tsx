@@ -5,6 +5,7 @@ import Hero from '@/components/Hero/hero';
 import About from '@/components/About/about';
 import Skills from '@/components/Skills/skills';
 import MaintenanceMode from '@/components/MaintenanceMode/maintenance-mode';
+import ScrollToTop from '@/components/ScrollToTop/scroll-to-top';
 
 export default function Home() {
   return (
@@ -12,9 +13,10 @@ export default function Home() {
       <NavBar />
 
       <Hero />
-      {/* <About />
-      <Skills /> */}
+      {/* <About /> */}
+      {/* <Skills /> */}
       <MaintenanceMode />
+      <ScrollToTop />
       <Footer />
     </main>
   );
