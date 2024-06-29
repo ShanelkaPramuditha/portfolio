@@ -1,22 +1,21 @@
-import Image from 'next/image';
+import NavBar from '@/components/NavBar/nav-bar';
+import Footer from '@/components/Footer/Footer';
+
+import Hero from '@/components/Hero/hero';
+import About from '@/components/About/about';
+import Skills from '@/components/Skills/skills';
+import MaintenanceMode from '@/components/MaintenanceMode/maintenance-mode';
 
 export default function Home() {
   return (
     <main>
-      <h1>Hello, World!</h1>
-      <div>
-        <Image
-          className="rounded-full"
-          src={
-            process.env.NEXT_PUBLIC_PROFILE_IMG ||
-            'https://github.com/ShanelkaPramuditha.png'
-          }
-          alt="Avatar"
-          width={220}
-          height={220}
-          priority
-        />
-      </div>
+      <NavBar />
+
+      <Hero />
+      {/* <About />
+      <Skills /> */}
+      <MaintenanceMode />
+      <Footer />
     </main>
   );
 }

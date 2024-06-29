@@ -1,14 +1,13 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { siteData } from '@/constants/data';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: process.env.NEXT_PUBLIC_SITE_NAME || 'Shanelka',
-  description:
-    process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||
-    "Shanelka Pramuditha's personal website",
+  title: siteData.title,
+  description: siteData.description,
 };
 
 export default function RootLayout({
