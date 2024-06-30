@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-white shadow dark:bg-gray-800">
       <div className="w-full mx-auto max-w-screen-xl p-4 sm:flex sm:items-center sm:justify-between">
-        <span className="text-sm text-gray-500 dark:text-gray-400 sm:justify-center">
+        <span className="text-sm text-gray-500 dark:text-gray-400 hidden sm:block ">
           &copy; {new Date().getFullYear()} Developed by{' '}
           <Link href={data.developerSite} className="hover:underline">
             {data.firstName} {data.lastName}
@@ -28,6 +28,13 @@ const Footer = () => {
             </li>
           ))}
         </ul>
+        {/* Mobile View - sm */}
+        <span className="text-sm text-center text-gray-500 dark:text-gray-400 sm:justify-center block sm:hidden md:hidden lg:hidden xl:hidden 2xl:hidden mt-3">
+          &copy; {new Date().getFullYear()} Developed by{' '}
+          <Link href={data.developerSite} className="hover:underline">
+            {data.firstName} {data.lastName}
+          </Link>
+        </span>
       </div>
     </footer>
   );

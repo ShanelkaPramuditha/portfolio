@@ -13,7 +13,7 @@ export default function Home() {
       <NavBar />
 
       <Hero />
-      {/* <About /> */}
+      <About />
       {/* <Skills /> */}
       <MaintenanceMode />
       <ScrollToTop />
