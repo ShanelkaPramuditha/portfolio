@@ -6,6 +6,8 @@ import About from '@/components/About/about';
 import Skills from '@/components/Skills/skills';
 import MaintenanceMode from '@/components/MaintenanceMode/maintenance-mode';
 import ScrollToTop from '@/components/ScrollToTop/scroll-to-top';
+import Contact from '@/components/Contact/contact';
+import Divider from '@/components/Divider/divider';
 
 export default function Home() {
   return (
@@ -13,8 +15,12 @@ export default function Home() {
       <NavBar />
 
       <Hero />
+      <Divider />
       <About />
+      <Divider />
       {/* <Skills /> */}
+      <Contact />
+      <Divider />
       <MaintenanceMode />
       <ScrollToTop />
       <Footer />

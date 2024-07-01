@@ -16,25 +16,9 @@ const data = {
     process.env.NEXT_PUBLIC_DEVELOPER_SITE || 'https://shanelka.com',
   cvLink:
     process.env.NEXT_PUBLIC_CV_LINK || 'https://cv.shanelka.com/Shanelka.pdf',
+  repositoryLink:
+    process.env.NEXT_PUBLIC_REPOSITORY_LINK ||
+    'https://github.com/ShanelkaPramuditha/portfolio',
 };
 
-// Social Media Links Array
-const socialMedia = [
-  {
-    name: 'GitHub',
-    url: process.env.NEXT_PUBLIC_GITHUB || 'https://github.com',
-    icon: 'FaGithub',
-  },
-  {
-    name: 'LinkedIn',
-    url: process.env.NEXT_PUBLIC_LINKEDIN || 'https://linkedin.com',
-    icon: 'FaLinkedin',
-  },
-  {
-    name: 'Facebook',
-    url: process.env.NEXT_PUBLIC_FACEBOOK || 'https://facebook.com',
-    icon: 'FaFacebook',
-  },
-];
-
-export { siteData, data, socialMedia };
+export { siteData, data };

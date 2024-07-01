@@ -1,13 +1,18 @@
 import Link from 'next/link';
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
-import { data, socialMedia } from '@/constants/data';
+import { data } from '@/constants/data';
+import { socialMedia } from '@/constants/contact';
 
 const Footer = () => {
   return (
     <footer className="bg-white shadow dark:bg-gray-800">
       <div className="w-full mx-auto max-w-screen-xl p-4 sm:flex sm:items-center sm:justify-between">
         <span className="text-sm text-gray-500 dark:text-gray-400 hidden sm:block ">
-          &copy; {new Date().getFullYear()} Developed by{' '}
+          &copy; {new Date().getFullYear()}{' '}
+          <Link href={data.repositoryLink} className="hover:underline">
+            Developed
+          </Link>{' '}
+          by{' '}
           <Link href={data.developerSite} className="hover:underline">
             {data.firstName} {data.lastName}
           </Link>
@@ -30,7 +35,11 @@ const Footer = () => {
         </ul>
         {/* Mobile View - sm */}
         <span className="text-sm text-center text-gray-500 dark:text-gray-400 sm:justify-center block sm:hidden md:hidden lg:hidden xl:hidden 2xl:hidden mt-3">
-          &copy; {new Date().getFullYear()} Developed by{' '}
+          &copy; {new Date().getFullYear()}{' '}
+          <Link href={data.repositoryLink} className="hover:underline">
+            Developed
+          </Link>{' '}
+          by{' '}
           <Link href={data.developerSite} className="hover:underline">
             {data.firstName} {data.lastName}
           </Link>
