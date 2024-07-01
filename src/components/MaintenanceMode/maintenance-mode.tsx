@@ -4,13 +4,9 @@ import React from 'react';
 
 const MaintenanceMode = () => {
   return (
-    <div className="w-full h-screen bg-white dark:bg-gray-900 flex items-center justify-center">
-      {' '}
-      {/* Full screen with flexbox center */}
-      <div className="maintenance-content max-w-sm text-center">
-        {' '}
-        {/* Centered content with max-width */}
-        <h1 className="text-3xl font-bold text-white dark:text-gray-200">
+    <div className="bg-white dark:bg-gray-900 flex items-center justify-center min-h-[calc(100vh-112px)]">
+      <div className="maintenance-content max-w-sm text-center object-none object-center">
+        <h1 className="text-3xl font-bold text-black dark:text-gray-200">
           Under Maintenance
         </h1>
         <p className="text-gray-500 dark:text-gray-400 mt-4">

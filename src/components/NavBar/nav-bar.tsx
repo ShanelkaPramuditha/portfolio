@@ -37,15 +37,15 @@ const NavBar = () => {
                 className="sm:hidden focus:outline-none"
               >
                 {nav ? (
-                  <FaTimes size={24} style={{ color: 'white' }} />
+                  <FaTimes size={24} className="text-black dark:text-white" />
                 ) : (
-                  <FaBars size={24} style={{ color: 'white' }} />
+                  <FaBars size={24} className="text-black dark:text-white" />
                 )}
               </button>
             </div>
           </div>
           <div
-            className={`lg:col-span-9 lg:flex lg:items-center lg:justify-end md:col-span-10 md:flex md:items-center md:justify-end sm:col-span-10 sm:flex sm:justify-end sm:items-center ${
+            className={`lg:col-span-9 lg:flex lg:items-center lg:justify-end md:col-span-9 md:flex md:items-center md:justify-end sm:col-span-9 sm:flex sm:justify-end sm:items-center ${
               nav ? 'block' : 'hidden'
             }`}
           >
@@ -62,7 +62,7 @@ const NavBar = () => {
               ))}
             </ul>
           </div>
-          <div className="gap-8 grid grid-cols-1 justify-items-end self-center">
+          <div className="hidden gap-8 md:grid lg:grid sm:grid grid-cols-1 justify-items-end self-center">
             <ThemeSwitch />
           </div>
         </div>
