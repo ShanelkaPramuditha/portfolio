@@ -9,7 +9,12 @@ const Footer = () => {
       <div className="w-full mx-auto max-w-screen-xl p-4 sm:flex sm:items-center sm:justify-between">
         <span className="text-sm text-gray-500 dark:text-gray-400 hidden sm:block ">
           &copy; {new Date().getFullYear()}{' '}
-          <Link href={data.repositoryLink} className="hover:underline">
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href={data.repositoryLink}
+            className="hover:underline"
+          >
             Developed
           </Link>{' '}
           by{' '}
@@ -36,7 +41,12 @@ const Footer = () => {
         {/* Mobile View - sm */}
         <span className="text-sm text-center text-gray-500 dark:text-gray-400 sm:justify-center block sm:hidden md:hidden lg:hidden xl:hidden 2xl:hidden mt-3">
           &copy; {new Date().getFullYear()}{' '}
-          <Link href={data.repositoryLink} className="hover:underline">
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href={data.repositoryLink}
+            className="hover:underline"
+          >
             Developed
           </Link>{' '}
           by{' '}
