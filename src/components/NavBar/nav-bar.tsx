@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { data } from '@/constants/data';
+import ThemeSwitch from '../../theme/ThemeSwitch/theme-switch';
 
 const NavBar = () => {
   const [nav, setNav] = useState(false);
@@ -27,19 +28,24 @@ const NavBar = () => {
             >
               {data.firstName}
             </div>
-            <button
-              onClick={() => setNav(!nav)}
-              className="sm:hidden focus:outline-none"
-            >
-              {nav ? (
-                <FaTimes size={24} style={{ color: 'white' }} />
-              ) : (
-                <FaBars size={24} style={{ color: 'white' }} />
-              )}
-            </button>
+            <div className="flex">
+              <div className="sm:hidden me-4">
+                <ThemeSwitch />
+              </div>
+              <button
+                onClick={() => setNav(!nav)}
+                className="sm:hidden focus:outline-none"
+              >
+                {nav ? (
+                  <FaTimes size={24} style={{ color: 'white' }} />
+                ) : (
+                  <FaBars size={24} style={{ color: 'white' }} />
+                )}
+              </button>
+            </div>
           </div>
           <div
-            className={`lg:col-span-10 lg:flex lg:items-center lg:justify-end md:col-span-10 md:flex md:items-center md:justify-end sm:col-span-10 sm:flex sm:justify-end sm:items-center ${
+            className={`lg:col-span-9 lg:flex lg:items-center lg:justify-end md:col-span-10 md:flex md:items-center md:justify-end sm:col-span-10 sm:flex sm:justify-end sm:items-center ${
               nav ? 'block' : 'hidden'
             }`}
           >
@@ -56,22 +62,28 @@ const NavBar = () => {
               ))}
             </ul>
           </div>
+          <div className="gap-8 grid grid-cols-1 justify-items-end self-center">
+            <ThemeSwitch />
+          </div>
         </div>
+
         <div
           className={`${
             nav ? 'block' : 'hidden'
           } sm:hidden bg-white dark:bg-gray-900 absolute top-full left-0 w-full pb-5`}
         >
-          {navItems.map((item, index) => (
-            <Link
-              key={index}
-              href={item.url}
-              className="block px-4 py-2 text-gray-900 text-center dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-200"
-              onClick={() => setNav(false)}
-            >
-              {item.name}
-            </Link>
-          ))}
+          <div>
+            {navItems.map((item, index) => (
+              <Link
+                key={index}
+                href={item.url}
+                className="block px-4 py-2 text-gray-900 text-center dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-200"
+                onClick={() => setNav(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
         </div>
       </nav>
     </>
