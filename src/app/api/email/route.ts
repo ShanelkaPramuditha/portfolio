@@ -1,4 +1,4 @@
-import { EmailTemplate } from '@/components/Email/email-template';
+import { ReceiveMail } from '@/templates/EmailTemplates/receive-to-me';
 import { Resend } from 'resend';
 import * as React from 'react';
 import { contactFormData } from '@/constants/contact';
@@ -19,8 +19,8 @@ export async function POST(request: any) {
     const { data, error } = await resend.emails.send({
       from: `${fullName} <${contactFormData.fromMail}>`,
       to: [contactFormData.toMail],
-      subject: 'Hello world',
-      react: EmailTemplate({
+      subject: `Message from ${fullName} <${email}>`,
+      react: ReceiveMail({
         fullName: fullName,
         email: email,
         mobile: mobile,

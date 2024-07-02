@@ -8,6 +8,11 @@ const config: Config = {
   ],
   darkMode: 'class',
   theme: {
+    screens: {
+      xs: '475px',
+      ...require('tailwindcss/defaultConfig').theme.screens,
+      xxs: '320px',
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

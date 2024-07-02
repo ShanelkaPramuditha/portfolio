@@ -9,14 +9,14 @@ import {
   Text,
 } from '@react-email/components';
 
-interface EmailTemplateProps {
+interface ReceiveMailProps {
   fullName: string;
   email: string;
   mobile: string;
   message: string;
 }
 
-export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
+export const ReceiveMail: React.FC<Readonly<ReceiveMailProps>> = ({
   fullName,
   email,
   mobile,
@@ -34,19 +34,19 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
       <Body>
         <Container width={600}>
           <Section>
-            <Text>Portfolio Contact Form</Text>
+            <Text>New Message from {fullName}</Text>
             <Hr />
             <Text>
-              <strong>Full Name:</strong> {fullName}
+              <b>Full Name:</b> {fullName}
             </Text>
             <Text>
-              <strong>Email:</strong> {email}
+              <b>Email:</b> {email}
             </Text>
             <Text>
-              <strong>Mobile:</strong> {mobile}
+              <b>Mobile:</b> {mobile}
             </Text>
             <Text>
-              <strong>Message:</strong> {message}
+              <b>Message:</b> {message}
             </Text>
           </Section>
         </Container>
@@ -55,4 +55,4 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
   </div>
 );
 
-export default EmailTemplate;
+export default ReceiveMail;

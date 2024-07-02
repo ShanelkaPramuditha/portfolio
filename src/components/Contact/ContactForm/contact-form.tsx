@@ -60,16 +60,16 @@ const ContactForm: React.FC = () => {
   const validationSchema = Yup.object().shape({
     fullName: Yup.string().required('Full Name is required'),
     email: Yup.string().email('Invalid email').required('Email is required'),
-    mobile: Yup.number(),
+    mobile: Yup.number().typeError('Contact Number must be a number'),
     message: Yup.string().required('Message is required'),
   });
 
   return (
     <>
       <div className="text-gray-900 dark:text-white w-full">
-        <h1 className="text-2xl font-bold text-center text-gray-900 dark:text-white">
+        {/* <h1 className="text-2xl font-bold text-center text-gray-900 dark:text-white">
           Get in Touch
-        </h1>
+        </h1> */}
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -187,7 +187,7 @@ const ContactForm: React.FC = () => {
                 </div>
               )}
               {/* Thanks and counter 10 to 0 */}
-              {isSubmitted && `Thanks! Resetting in ${counter} seconds...`}
+              {isSubmitted && `Thanks for reaching! (${counter})`}
             </button>
           </Form>
         </Formik>
