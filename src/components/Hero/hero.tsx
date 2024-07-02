@@ -1,6 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { data } from '@/constants/data';
+import { socialMedia } from '@/constants/contact';
+import {
+  FaFacebook,
+  FaGithub,
+  FaLinkedin,
+  FaTelegram,
+  FaWhatsapp,
+} from 'react-icons/fa';
 
 const Hero = () => {
   return (
@@ -40,7 +48,7 @@ const Hero = () => {
               <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400 text-center">
                 {data.description}
               </p>
-              <div className="flex justify-center gap-10">
+              <div className="grid xs:grid-cols-2 gap-5">
                 <Link
                   href="#contact"
                   className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
@@ -57,6 +65,26 @@ const Hero = () => {
                 </Link>
               </div>
             </div>
+          </div>
+          <div className="flex justify-center my-8">
+            <ul className="flex flex-wrap items-center text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0 gap-5 justify-center">
+              {socialMedia.map((social, index) => (
+                <li key={index}>
+                  <Link
+                    href={social.url}
+                    className="flex items-center justify-center w-8 h-8 mx-1 text-gray-500 transition-colors rounded-full dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 "
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {social.icon === 'FaGithub' && <FaGithub size={40} />}
+                    {social.icon === 'FaLinkedin' && <FaLinkedin size={40} />}
+                    {social.icon === 'FaFacebook' && <FaFacebook size={40} />}
+                    {social.icon === 'FaWhatsapp' && <FaWhatsapp size={40} />}
+                    {social.icon === 'FaTelegram' && <FaTelegram size={40} />}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

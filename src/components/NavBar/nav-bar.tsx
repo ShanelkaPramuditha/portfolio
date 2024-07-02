@@ -1,10 +1,18 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { data } from '@/constants/data';
 import ThemeSwitch from '../../theme/ThemeSwitch/theme-switch';
+import { socialMedia } from '@/constants/contact';
+import {
+  FaFacebook,
+  FaGithub,
+  FaLinkedin,
+  FaTelegram,
+  FaWhatsapp,
+} from 'react-icons/fa';
 
 const NavBar = () => {
   const [nav, setNav] = useState(false);
@@ -17,9 +25,18 @@ const NavBar = () => {
     { name: 'Contact', url: '#contact' },
   ];
 
+  // Remove scrollbar when nav is open
+  useEffect(() => {
+    if (nav) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [nav]);
+
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 content-center h-12">
+      <nav className="sticky top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 content-center h-12">
         <div className="max-w-screen-xl px-4 mx-auto lg:gap-8 lg:grid lg:grid-cols-12 md:grid md:grid-cols-12 sm:grid sm:grid-cols-12">
           <div className="flex items-center justify-between lg:col-span-2 md:col-span-2 sm:col-span-2">
             <div
@@ -68,21 +85,42 @@ const NavBar = () => {
         </div>
 
         <div
+          onClick={() => setNav(false)}
           className={`${
             nav ? 'block' : 'hidden'
-          } sm:hidden bg-white dark:bg-gray-900 absolute top-full left-0 w-full pb-5`}
+          } sm:hidden bg-white dark:bg-gray-900 absolute top-full left-0 w-full pb-5 h-screen border-t border-gray-200 dark:border-gray-700 dark:text-gray-100 text-gray-900 z-50`}
         >
           <div>
             {navItems.map((item, index) => (
               <Link
                 key={index}
                 href={item.url}
-                className="block px-4 py-2 text-gray-900 text-center dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-200"
-                onClick={() => setNav(false)}
+                className="block px-4 py-3 my-5 text-gray-900 text-center dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-200 border rounded-full dark:border-gray-700 mx-auto w-1/2"
+                // onClick={() => setNav(false)}
               >
                 {item.name}
               </Link>
             ))}
+          </div>
+          <div className="flex justify-center">
+            <ul className="flex flex-wrap items-center text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0 gap-5 justify-center">
+              {socialMedia.map((social, index) => (
+                <li key={index}>
+                  <Link
+                    href={social.url}
+                    className="flex items-center justify-center w-8 h-8 mx-1 text-gray-500 transition-colors rounded-full dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 "
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {social.icon === 'FaGithub' && <FaGithub size={40} />}
+                    {social.icon === 'FaLinkedin' && <FaLinkedin size={40} />}
+                    {social.icon === 'FaFacebook' && <FaFacebook size={40} />}
+                    {social.icon === 'FaWhatsapp' && <FaWhatsapp size={40} />}
+                    {social.icon === 'FaTelegram' && <FaTelegram size={40} />}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </nav>
