@@ -60,7 +60,7 @@ const ContactForm: React.FC = () => {
   const validationSchema = Yup.object().shape({
     fullName: Yup.string().required('Full Name is required'),
     email: Yup.string().email('Invalid email').required('Email is required'),
-    mobile: Yup.number(),
+    mobile: Yup.number().typeError('Contact Number must be a number'),
     message: Yup.string().required('Message is required'),
   });
 

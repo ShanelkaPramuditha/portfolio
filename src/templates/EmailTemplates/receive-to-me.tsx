@@ -9,14 +9,14 @@ import {
   Text,
 } from '@react-email/components';
 
-interface EmailTemplateProps {
+interface ReceiveMailProps {
   fullName: string;
   email: string;
   mobile: string;
   message: string;
 }
 
-export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
+export const ReceiveMail: React.FC<Readonly<ReceiveMailProps>> = ({
   fullName,
   email,
   mobile,
@@ -55,4 +55,4 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
   </div>
 );
 
-export default EmailTemplate;
+export default ReceiveMail;
