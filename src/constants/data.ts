@@ -8,7 +8,7 @@ const siteData = {
 const data = {
   firstName: process.env.NEXT_PUBLIC_FIRST_NAME || 'Shanelka',
   lastName: process.env.NEXT_PUBLIC_LAST_NAME || 'Pramuditha',
-  description: process.env.NEXT_PUBLIC_DESCRIPTION || 'Software Engineer',
+  description: process.env.NEXT_PUBLIC_DESCRIPTION || 'Full Stack Developer',
   profileImg:
     process.env.NEXT_PUBLIC_PROFILE_IMG ||
     'https://github.com/ShanelkaPramuditha.png',

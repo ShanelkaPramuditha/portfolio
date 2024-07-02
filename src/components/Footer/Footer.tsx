@@ -1,5 +1,11 @@
 import Link from 'next/link';
-import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
+import {
+  FaFacebook,
+  FaGithub,
+  FaLinkedin,
+  FaWhatsapp,
+  FaTelegram,
+} from 'react-icons/fa';
 import { data } from '@/constants/data';
 import { socialMedia } from '@/constants/contact';
 
@@ -34,6 +40,8 @@ const Footer = () => {
                 {social.icon === 'FaGithub' && <FaGithub size={24} />}
                 {social.icon === 'FaLinkedin' && <FaLinkedin size={24} />}
                 {social.icon === 'FaFacebook' && <FaFacebook size={24} />}
+                {social.icon === 'FaWhatsapp' && <FaWhatsapp size={24} />}
+                {social.icon === 'FaTelegram' && <FaTelegram size={24} />}
               </Link>
             </li>
           ))}

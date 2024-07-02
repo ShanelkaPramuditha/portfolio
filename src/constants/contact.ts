@@ -15,6 +15,16 @@ const socialMedia = [
     url: process.env.NEXT_PUBLIC_FACEBOOK || 'https://facebook.com',
     icon: 'FaFacebook',
   },
+  {
+    name: 'Whatsapp',
+    url: process.env.NEXT_PUBLIC_WHATSAPP || 'https://wa.me',
+    icon: 'FaWhatsapp',
+  },
+  {
+    name: 'Telegram',
+    url: process.env.NEXT_PUBLIC_TELEGRAM || 'https://telegram.org',
+    icon: 'FaTelegram',
+  },
 ];
 
 const contactFormData = {
