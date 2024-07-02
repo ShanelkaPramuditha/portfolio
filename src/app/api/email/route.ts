@@ -19,7 +19,7 @@ export async function POST(request: any) {
     const { data, error } = await resend.emails.send({
       from: `${fullName} <${contactFormData.fromMail}>`,
       to: [contactFormData.toMail],
-      subject: 'Hello world',
+      subject: `Message from ${fullName} <${email}>`,
       react: ReceiveMail({
         fullName: fullName,
         email: email,

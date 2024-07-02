@@ -23,4 +23,12 @@ const contactFormData = {
   toMail: process.env.NEXT_PUBLIC_TO_EMAIL || '',
 };
 
-export { socialMedia, contactFormData };
+const directContactData = {
+  email: process.env.NEXT_PUBLIC_EMAIL || 'contact@shanelka.com',
+  phone: process.env.NEXT_PUBLIC_PHONE || '+94771230577',
+  scheduleCall:
+    process.env.NEXT_PUBLIC_CALL_SCHEDULE ||
+    'https://calendly.com/shanelka/30min',
+};
+
+export { socialMedia, contactFormData, directContactData };
