@@ -11,3 +11,21 @@ body {
 .dark body {
   background-color: rgb(17 24 39);
 }
+
+* {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* html {
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  scroll-margin: 48px 0 0 0;
+}
+
+section:last-child {
+  scroll-snap-align: none;
+} */

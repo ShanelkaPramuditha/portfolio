@@ -13,7 +13,7 @@ import {
 const Hero = () => {
   return (
     <>
-      <div
+      <section
         id="hero"
         className="bg-white dark:bg-gray-900 content-center min-h-[calc(100vh-48px)]"
       >
@@ -87,7 +87,7 @@ const Hero = () => {
             </ul>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

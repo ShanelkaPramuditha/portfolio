@@ -34,14 +34,39 @@ const NavBar = () => {
     }
   }, [nav]);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Check if scrolled down to show shadow
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
-      <nav className="sticky top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 content-center h-12">
+      <nav
+        className={`sticky top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 content-center h-12 ${
+          scrolled && 'drop-shadow'
+        }`}
+      >
         <div className="max-w-screen-xl px-4 mx-auto lg:gap-8 lg:grid lg:grid-cols-12 md:grid md:grid-cols-12 sm:grid sm:grid-cols-12">
           <div className="flex items-center justify-between lg:col-span-2 md:col-span-2 sm:col-span-2">
             <div
-              className="text-xl font-bold text-gray-900 dark:text-gray-100"
+              className="text-xl font-bold text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-200 cursor-pointer"
               style={{ fontFamily: 'Playwrite DE SAS' }}
+              onClick={scrollToTop}
             >
               {data.firstName}
             </div>

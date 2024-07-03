@@ -8,6 +8,7 @@ import MaintenanceMode from '@/components/MaintenanceMode/maintenance-mode';
 import ScrollToTop from '@/components/ScrollToTop/scroll-to-top';
 import Contact from '@/components/Contact/contact';
 import Divider from '@/components/Divider/divider';
+import Projects from '@/components/Projects/projects';
 
 export default function Home() {
   return (
@@ -19,6 +20,8 @@ export default function Home() {
       <About />
       <Divider />
       {/* <Skills /> */}
+      <Projects />
+      <Divider />
       <Contact />
       <Divider />
       <MaintenanceMode />
