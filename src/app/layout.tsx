@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { siteData } from '@/constants/data';
 import Theme from '@/theme/ThemeProvider/theme-provider';
+import { ReactQueryProvider } from '@/contexts/QueryProvider/query-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,9 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html style={{ scrollBehavior: 'smooth' }} lang="en">
+    <html lang="en">
       <body className={inter.className}>
-        <Theme>{children}</Theme>
+        <ReactQueryProvider>
+          <Theme>{children}</Theme>
+        </ReactQueryProvider>
       </body>
     </html>
   );

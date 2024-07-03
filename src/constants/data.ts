@@ -19,6 +19,8 @@ const data = {
   repositoryLink:
     process.env.NEXT_PUBLIC_REPOSITORY_LINK ||
     'https://github.com/ShanelkaPramuditha/portfolio',
+  githubUsername:
+    process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'ShanelkaPramuditha',
 };
 
 export { siteData, data };
