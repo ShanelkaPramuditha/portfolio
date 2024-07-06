@@ -33,8 +33,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ count }) => {
         <div>
           <Spinner />
         </div>
-      ) : isErrorProjects ? (
-        <div>Error: {isErrorProjects}</div>
       ) : (
         sortedProjects.map((project: any) => (
           <div

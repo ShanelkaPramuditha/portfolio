@@ -1,11 +1,21 @@
-import Hero from '@/components/Hero/hero';
-import About from '@/components/About/about';
-import Skills from '@/components/Skills/skills';
-import MaintenanceMode from '@/components/MaintenanceMode/maintenance-mode';
-import ScrollToTop from '@/components/ScrollToTop/scroll-to-top';
-import Contact from '@/components/Contact/contact';
-import Divider from '@/components/Divider/divider';
-import Projects from '@/components/Projects/projects';
+// import Education from '@/components/Education/education';
+import React, { lazy, Suspense } from 'react';
+
+const Hero = lazy(() => import('@/components/Hero/hero'));
+const Divider = lazy(() => import('@/components/Divider/divider'));
+const About = lazy(() => import('@/components/About/about'));
+const Contact = lazy(() => import('@/components/Contact/contact'));
+
+const ScrollToTop = lazy(
+  () => import('@/components/ScrollToTop/scroll-to-top'),
+);
+// const Skills = lazy(() => import('@/components/Skills/skills'));
+
+const MaintenanceMode = lazy(
+  () => import('@/components/MaintenanceMode/maintenance-mode'),
+);
+
+const Projects = lazy(() => import('@/components/Projects/projects'));
 
 export default function Home() {
   return (
@@ -17,6 +27,7 @@ export default function Home() {
       {/* <Skills /> */}
       <Projects />
       <Divider />
+      {/* <Education /> */}
       <Contact />
       <Divider />
       <MaintenanceMode />

@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const Projects = () => {
   return (
-    <section id="projects" className="min-h-screen content-center">
+    <section id="projects" className="content-center min-h-[calc(100vh-112px)]">
       <div className="max-w-screen-xl px-4 mx-auto justify-center py-8 lg:py-16 my-10">
         <h1 className="mb-12 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white text-center">
           Projects
