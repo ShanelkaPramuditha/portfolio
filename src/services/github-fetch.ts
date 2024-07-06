@@ -3,9 +3,15 @@ import axios from 'axios';
 
 export const fetchGithub = async (count: number) => {
   try {
-    const url = `https://api.github.com/users/${data.githubUsername}/repos?per_page=${count}`;
-    const response = await axios.get(url);
-    return response.data;
+    if (count === -1) {
+      const url = `https://api.github.com/users/${data.githubUsername}/repos`;
+      const response = await axios.get(url);
+      return response.data;
+    } else {
+      const url = `https://api.github.com/users/${data.githubUsername}/repos?per_page=${count}`;
+      const response = await axios.get(url);
+      return response.data;
+    }
   } catch (error) {
     console.error('Error fetching GitHub data:', error);
     return [];

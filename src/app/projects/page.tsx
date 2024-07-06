@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import ProjectCard from './ProjectCard/project-card';
+import ProjectCard from '@/components/Projects/ProjectCard/project-card';
 import Link from 'next/link';
 
 const Projects = () => {
@@ -12,16 +12,7 @@ const Projects = () => {
           Projects
         </h1>
         <div className="flex flex-wrap gap-10 w-full justify-center mx-auto">
-          <ProjectCard count={8} />
-        </div>
-        {/* View More */}
-        <div className="flex justify-center">
-          <Link
-            href="/projects"
-            className="px-6 py-3 mt-10 text-lg font-semibold text-white transition-colors duration-200 transform bg-blue-600 rounded-md hover:bg-blue-700"
-          >
-            View More
-          </Link>
+          <ProjectCard count={-1} />
         </div>
       </div>
     </section>

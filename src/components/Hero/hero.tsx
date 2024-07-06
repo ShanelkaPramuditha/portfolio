@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <>
       <section
-        id="hero"
+        id="home"
         className="bg-white dark:bg-gray-900 content-center min-h-[calc(100vh-48px)]"
       >
         <div className="">
