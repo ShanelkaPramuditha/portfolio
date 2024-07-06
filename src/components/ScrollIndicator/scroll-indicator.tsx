@@ -10,7 +10,7 @@ const ScrollIndicator: React.FC = () => {
   return (
     <motion.div
       style={{
-        scaleX,
+        scaleX: scrollYProgress,
         height: '3px',
         backgroundColor: '#2563EB',
         position: 'fixed',
