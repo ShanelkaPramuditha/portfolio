@@ -18,11 +18,12 @@ const NavBar = () => {
   const [nav, setNav] = useState(false);
 
   const navItems = [
-    { name: 'About', url: '#about' },
-    { name: 'Skills', url: '#skills' },
-    { name: 'Education', url: '#education' },
-    { name: 'Experience', url: '#experience' },
-    { name: 'Contact', url: '#contact' },
+    { name: 'About', url: '/#about' },
+    { name: 'Skills', url: '/#skills' },
+    { name: 'Education', url: '/#education' },
+    { name: 'Experience', url: '/#experience' },
+    { name: 'Projects', url: '/#projects' },
+    { name: 'Contact', url: '/#contact' },
   ];
 
   // Remove scrollbar when nav is open
@@ -33,10 +34,6 @@ const NavBar = () => {
       document.body.style.overflow = 'auto';
     }
   }, [nav]);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   // Check if scrolled down to show shadow
   const [scrolled, setScrolled] = useState(false);
@@ -63,13 +60,13 @@ const NavBar = () => {
       >
         <div className="max-w-screen-xl px-4 mx-auto lg:gap-8 lg:grid lg:grid-cols-12 md:grid md:grid-cols-12 sm:grid sm:grid-cols-12">
           <div className="flex items-center justify-between lg:col-span-2 md:col-span-2 sm:col-span-2">
-            <div
+            <Link
               className="text-xl font-bold text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-200 cursor-pointer"
               style={{ fontFamily: 'Playwrite DE SAS' }}
-              onClick={scrollToTop}
+              href="/"
             >
               {data.firstName}
-            </div>
+            </Link>
             <div className="flex">
               <div className="sm:hidden me-4">
                 <ThemeSwitch />
@@ -93,10 +90,10 @@ const NavBar = () => {
           >
             <ul className="hidden sm:flex">
               {navItems.map((item, index) => (
-                <li key={index}>
+                <li key={index} className="hover:underline cursor-pointer">
                   <Link
                     href={item.url}
-                    className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-200"
+                    className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-200 "
                   >
                     {item.name}
                   </Link>

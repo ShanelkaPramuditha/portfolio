@@ -4,10 +4,14 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { fetchGithub } from '@/services/github-fetch';
 import { data } from '@/constants/data';
+import Spinner from '@/components/Spinner/spinner';
 
-const fetchGithubData = (): Promise<any> => fetchGithub(8);
+interface ProjectCardProps {
+  count: number;
+}
 
-const ProjectCard = () => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ count }) => {
+  const fetchGithubData = (): Promise<any> => fetchGithub(count);
   const {
     data: projects,
     isLoading: isLoadingProjects,
@@ -26,7 +30,9 @@ const ProjectCard = () => {
   return (
     <>
       {isLoadingProjects ? (
-        <div>Loading...</div>
+        <div>
+          <Spinner />
+        </div>
       ) : isErrorProjects ? (
         <div>Error: {isErrorProjects}</div>
       ) : (
@@ -53,7 +59,9 @@ const ProjectCard = () => {
                   </h5>
                 </div>
                 <p className="mb-4 text-gray-700 dark:text-gray-300 line-clamp-3">
-                  {project.description}
+                  {project.description
+                    ? `${project.description}`
+                    : `${project.name} project`}
                 </p>
                 <div className="absolute bottom-2 right-0">
                   {project.language && (
