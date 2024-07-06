@@ -6,6 +6,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import { data } from '@/constants/data';
 import ThemeSwitch from '../../theme/ThemeSwitch/theme-switch';
 import { socialMedia } from '@/constants/contact';
+import localFont from 'next/font/local';
 import {
   FaFacebook,
   FaGithub,
@@ -13,6 +14,10 @@ import {
   FaTelegram,
   FaWhatsapp,
 } from 'react-icons/fa';
+
+const newFont = localFont({
+  src: '../../assets/fonts/BestermindRegular/BestermindRegular.ttf',
+});
 
 const NavBar = () => {
   const [nav, setNav] = useState(false);
@@ -61,8 +66,7 @@ const NavBar = () => {
         <div className="max-w-screen-xl px-4 mx-auto lg:gap-8 lg:grid lg:grid-cols-12 md:grid md:grid-cols-12 sm:grid sm:grid-cols-12">
           <div className="flex items-center justify-between lg:col-span-2 md:col-span-2 sm:col-span-2">
             <Link
-              className="text-xl font-bold text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-200 cursor-pointer"
-              style={{ fontFamily: 'Playwrite DE SAS' }}
+              className={`text-xl font-bold text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-200 cursor-pointer ${newFont.className}`}
               href="/"
             >
               {data.firstName}
