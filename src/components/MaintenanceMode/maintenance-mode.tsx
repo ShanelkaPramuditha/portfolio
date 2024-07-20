@@ -10,7 +10,7 @@ const MaintenanceMode = () => {
   const [timeLeft, setTimeLeft] = useState<number>(0);
 
   useEffect(() => {
-    const targetDate = new Date('2024-07-20T00:00:00Z').getTime();
+    const targetDate = new Date('2024-07-31T00:00:00Z').getTime();
     const updateCountdown = () => {
       const currentTime = new Date().getTime();
       const secondsLeft = differenceInSeconds(targetDate, currentTime);
