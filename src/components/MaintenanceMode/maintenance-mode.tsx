@@ -54,14 +54,14 @@ const MaintenanceMode = () => {
           <p className="text-gray-500 dark:text-gray-400 mt-2">
             Thank you for your patience.
           </p>
-          <div className="mt-4 text-center">
+          {/* <div className="mt-4 text-center">
             <h2 className="text-2xl font-bold text-black dark:text-gray-200">
               Time left until maintenance is over:
             </h2>
             <p className="text-red-500 dark:text-red-400 mt-2 border border-gray-300 dark:border-red-700 rounded-lg px-3 py-2">
               {formatTimeLeft(timeLeft)}
             </p>
-          </div>
+          </div> */}
           <Link
             href="https://fallback.shanelka.com"
             target="_blank"
