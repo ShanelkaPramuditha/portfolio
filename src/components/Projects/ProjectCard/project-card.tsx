@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { fetchGithub } from '@/services/github-fetch';
+import useProjects from '@/hooks/use-projects';
 import { data } from '@/constants/data';
 import Spinner from '@/components/Spinner/spinner';
 
@@ -11,21 +10,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ count }) => {
-  const fetchGithubData = (): Promise<any> => fetchGithub(count);
-  const {
-    data: projects,
-    isLoading: isLoadingProjects,
-    isError: isErrorProjects,
-  } = useQuery({
-    queryKey: ['projects'],
-    queryFn: fetchGithubData,
-  });
-
-  // Last created project first
-  const sortedProjects = projects?.sort(
-    (a: any, b: any) =>
-      new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
-  );
+  const { sortedProjects, isLoadingProjects, isErrorProjects } =
+    useProjects(count);
 
   return (
     <>
@@ -33,8 +19,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ count }) => {
         <div>
           <Spinner />
         </div>
+      ) : isErrorProjects ? (
+        <div>
+          <h1 className="text-2xl text-red-500">Error fetching projects</h1>
+        </div>
       ) : (
-        sortedProjects.map((project: any) => (
+        sortedProjects?.map((project: any) => (
           <div
             key={project.id}
             className="w-64 relative bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 h-full"
