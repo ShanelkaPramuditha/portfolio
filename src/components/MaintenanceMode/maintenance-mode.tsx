@@ -62,14 +62,14 @@ const MaintenanceMode = () => {
               {formatTimeLeft(timeLeft)}
             </p>
           </div> */}
-          <Link
+          {/* <Link
             href="https://fallback.shanelka.com"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 mt-4"
           >
             Check me with old one
-          </Link>
+          </Link> */}
         </div>
       </div>
     </section>
