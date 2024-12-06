@@ -9,6 +9,8 @@ import NavBar from '@/components/NavBar/nav-bar';
 import Footer from '@/components/Footer/footer';
 import Spinner from '@/components/Spinner/spinner';
 import ScrollIndicator from '@/components/ScrollIndicator/scroll-indicator';
+import { GA_CONFIG } from '@/constants/configs';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,6 +19,9 @@ export const metadata: Metadata = {
   description: siteData.description,
 };
 
+// Google analytics tracking ID
+const GA_TRACKING_ID = GA_CONFIG.id;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,6 +29,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* Add Google Analytics Scripts */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_TRACKING_ID}');
+          `}
+      </Script>
       <body className={inter.className}>
         <ReactQueryProvider>
           <Theme>
