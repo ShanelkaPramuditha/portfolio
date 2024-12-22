@@ -1,0 +1,34 @@
+{
+  "site_title": "Shanelka",
+  "site_description": "Shanelka Pramuditha's personal website",
+  "user": {
+    "name": {
+      "first": "Shanelka",
+      "last": "Pramuditha"
+    },
+    "bio": "I am undergratuated student at SLIIT with a passion for IT. I have honed my skills in a my industry. I am driven to constantly learn and grow, and am eager to apply my knowledge to new challenges.",
+    "who_am_i": "I am Shanelka Pramuditha, a third-year Software Engineering undergraduate at SLIIT. With a strong foundation in software development, I have experience in building both web and mobile applications. My projects include an online class management system and a task management app, showcasing my ability to deliver robust and scalable solutions. I am proficient in JavaScript, Python, PHP, and other technologies, which enable me to create innovative and efficient applications.",
+    "description": ""
+  },
+  "links": {
+    "profile_image": "https://github.com/ShanelkaPramuditha.png",
+    "cv_link": "https://cv.shanelka.com/Shanelka.pdf",
+    "github": "https://github.com/ShanelkaPramuditha",
+    "web_site": "https://shanelka.com",
+    "calendly": "https://calendly.com/shanelka/30min",
+    "social_media": {
+      "linkedin": "https://www.linkedin.com/in/shanelkapramuditha",
+      "facebook": "https://www.facebook.com/ShanelkaPramuditha",
+      "whatsapp": "https://wa.me/94771230577",
+      "telegram": "https://t.me/ShanelkaPramuditha"
+    },
+    "repository": "https://github.com/ShanelkaPramuditha/portfolio"
+  },
+  "contact": {
+    "email": "contact@shanelka.com",
+    "phone": "+94771230577"
+  },
+  "usernames": {
+    "github": "ShanelkaPramuditha"
+  }
+}
