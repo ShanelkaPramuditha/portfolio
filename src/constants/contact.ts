@@ -1,28 +1,30 @@
+import Data from '@/constants/data/data.json';
+
 // Social Media Links Array
 const socialMedia = [
   {
     name: 'GitHub',
-    url: process.env.NEXT_PUBLIC_GITHUB || 'https://github.com',
+    url: Data.links.github,
     icon: 'FaGithub',
   },
   {
     name: 'LinkedIn',
-    url: process.env.NEXT_PUBLIC_LINKEDIN || 'https://linkedin.com',
+    url: Data.links.social_media.linkedin,
     icon: 'FaLinkedin',
   },
   {
     name: 'Facebook',
-    url: process.env.NEXT_PUBLIC_FACEBOOK || 'https://facebook.com',
+    url: Data.links.social_media.facebook,
     icon: 'FaFacebook',
   },
   {
     name: 'Whatsapp',
-    url: process.env.NEXT_PUBLIC_WHATSAPP || 'https://wa.me',
+    url: Data.links.social_media.whatsapp,
     icon: 'FaWhatsapp',
   },
   {
     name: 'Telegram',
-    url: process.env.NEXT_PUBLIC_TELEGRAM || 'https://telegram.org',
+    url: Data.links.social_media.telegram,
     icon: 'FaTelegram',
   },
 ];
@@ -34,11 +36,9 @@ const contactFormData = {
 };
 
 const directContactData = {
-  email: process.env.NEXT_PUBLIC_EMAIL || 'contact@shanelka.com',
-  phone: process.env.NEXT_PUBLIC_PHONE || '+94771230577',
-  scheduleCall:
-    process.env.NEXT_PUBLIC_CALL_SCHEDULE ||
-    'https://calendly.com/shanelka/30min',
+  email: Data.contact.email,
+  phone: Data.contact.phone,
+  scheduleCall: Data.links.calendly,
 };
 
 export { socialMedia, contactFormData, directContactData };

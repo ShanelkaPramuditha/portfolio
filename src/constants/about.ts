@@ -1,10 +1,8 @@
+import Data from '@/constants/data/data.json';
+
 const aboutData = {
-  description1:
-    process.env.NEXT_PUBLIC_DESCRIPTION_1 ||
-    "My name is Shanelka. I'm an undergraduate student at Sri Lanka Institute of Information Technology (SLIIT).",
-  description2:
-    process.env.NEXT_PUBLIC_DESCRIPTION_2 ||
-    'I enjoy programming and have a passion for it. I am pursuing my studies while pursuing my interests.',
+  description1: Data.user.who_am_i,
+  description2: Data.user.description,
 };
 
 export { aboutData };

@@ -1,26 +1,19 @@
+import Data from '@/constants/data/data.json';
+
 const siteData = {
-  title: process.env.NEXT_PUBLIC_SITE_TITLE || 'Shanelka',
-  description:
-    process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||
-    "Shanelka Pramuditha's personal website",
+  title: Data.site_title,
+  description: Data.site_description,
 };
 
 const data = {
-  firstName: process.env.NEXT_PUBLIC_FIRST_NAME || 'Shanelka',
-  lastName: process.env.NEXT_PUBLIC_LAST_NAME || 'Pramuditha',
-  description: process.env.NEXT_PUBLIC_DESCRIPTION || 'Full Stack Developer',
-  profileImg:
-    process.env.NEXT_PUBLIC_PROFILE_IMG ||
-    'https://github.com/ShanelkaPramuditha.png',
-  developerSite:
-    process.env.NEXT_PUBLIC_DEVELOPER_SITE || 'https://shanelka.com',
-  cvLink:
-    process.env.NEXT_PUBLIC_CV_LINK || 'https://cv.shanelka.com/Shanelka.pdf',
-  repositoryLink:
-    process.env.NEXT_PUBLIC_REPOSITORY_LINK ||
-    'https://github.com/ShanelkaPramuditha/portfolio',
-  githubUsername:
-    process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'ShanelkaPramuditha',
+  firstName: Data.user.name.first,
+  lastName: Data.user.name.last,
+  description: Data.user.bio,
+  profileImg: Data.links.profile_image,
+  developerSite: Data.links.web_site,
+  cvLink: Data.links.cv_link,
+  repositoryLink: Data.links.repository,
+  githubUsername: Data.usernames.github,
 };
 
 export { siteData, data };

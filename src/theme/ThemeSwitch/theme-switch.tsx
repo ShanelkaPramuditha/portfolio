@@ -1,20 +1,34 @@
 'use client';
 
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
+import { setCookie } from 'cookies-next';
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleThemeToggle = () => {
-    if (theme === 'dark') {
-      return setTheme('light');
-    }
-    return setTheme('dark');
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    setCookie('theme', newTheme); // Save the theme preference in a cookie
   };
+
+  if (!mounted) {
+    return null; // Avoid rendering until the component is mounted
+  }
 
   return (
     <div className="flex">
-      <button className="light-switch" onClick={handleThemeToggle}>
+      <button
+        className="light-switch"
+        onClick={handleThemeToggle}
+        aria-label="Toggle theme"
+      >
         <div className="cursor-pointer p-2">
           {theme === 'light' ? (
             <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">

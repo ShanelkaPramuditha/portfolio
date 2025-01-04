@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { aboutData } from '@/constants/about';
+import about from '@/assets/images/about.png';
 
 const About = () => {
   return (
@@ -21,7 +22,7 @@ const About = () => {
           <div className="hidden lg:flex justify-center items-center lg:col-span-5 lg:mt-0">
             <Image
               className="object-cover object-center"
-              src={'https://i.postimg.cc/Pr42qzbF/about.png'}
+              src={about}
               alt="Avatar"
               width={350}
               height={350}
@@ -32,7 +33,7 @@ const About = () => {
           <div className="flex justify-center lg:hidden">
             <Image
               className="object-cover object-center"
-              src={'https://i.postimg.cc/Pr42qzbF/about.png'}
+              src={about}
               alt="Avatar"
               width={250}
               height={250}
