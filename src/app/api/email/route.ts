@@ -25,7 +25,7 @@ export async function POST(request: any) {
         email: email,
         mobile: mobile,
         message: message,
-      }) as React.ReactElement,
+      }) as React.ReactElement<any>,
     });
 
     if (error) {

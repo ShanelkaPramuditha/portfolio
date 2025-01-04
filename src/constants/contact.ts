@@ -1,4 +1,4 @@
-import Data from '@/constants/data.json';
+import Data from '@/constants/data/data.json';
 
 // Social Media Links Array
 const socialMedia = [

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { siteData } from '@/constants/data';
-import Theme from '@/theme/ThemeProvider/theme-provider';
+import { ThemeProvider } from '@/theme/ThemeProvider/theme-provider';
 import { ReactQueryProvider } from '@/contexts/QueryProvider/query-provider';
 import NavBar from '@/components/NavBar/nav-bar';
 import Footer from '@/components/Footer/footer';
@@ -11,6 +11,7 @@ import Spinner from '@/components/Spinner/spinner';
 import ScrollIndicator from '@/components/ScrollIndicator/scroll-indicator';
 import { GA_CONFIG } from '@/constants/configs';
 import Script from 'next/script';
+import { cookies } from 'next/headers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,13 +23,21 @@ export const metadata: Metadata = {
 // Google analytics tracking ID
 const GA_TRACKING_ID = GA_CONFIG.id;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Get theme from cookies on the server
+  const themeCookie = (await cookies()).get('theme');
+  const theme = themeCookie ? themeCookie.value : 'light';
+
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={theme === 'dark' ? 'dark' : 'light'}
+      style={{ colorScheme: theme === 'dark' ? 'dark' : 'light' }}
+    >
       {/* Add Google Analytics Scripts */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
@@ -44,7 +53,7 @@ export default function RootLayout({
       </Script>
       <body className={inter.className}>
         <ReactQueryProvider>
-          <Theme>
+          <ThemeProvider>
             <NavBar />
             <ScrollIndicator />
             <Suspense
@@ -57,7 +66,7 @@ export default function RootLayout({
               {children}
             </Suspense>
             <Footer />
-          </Theme>
+          </ThemeProvider>
         </ReactQueryProvider>
       </body>
     </html>

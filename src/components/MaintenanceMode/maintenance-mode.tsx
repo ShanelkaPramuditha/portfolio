@@ -1,9 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
-import gif from '../../assets/gif/working.gif';
+import gif from '@/assets/gif/working.gif';
 import { differenceInSeconds } from 'date-fns';
 
 const MaintenanceMode = () => {
@@ -41,6 +40,7 @@ const MaintenanceMode = () => {
             className="w-full h-full"
             width={500}
             height={500}
+            unoptimized
           />
         </div>
         <div className="mx-auto place-self-center lg:col-span-5 flex flex-col justify-center items-center">
@@ -62,14 +62,6 @@ const MaintenanceMode = () => {
               {formatTimeLeft(timeLeft)}
             </p>
           </div> */}
-          {/* <Link
-            href="https://fallback.shanelka.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 mt-4"
-          >
-            Check me with old one
-          </Link> */}
         </div>
       </div>
     </section>
