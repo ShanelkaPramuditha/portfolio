@@ -17,8 +17,21 @@ export default function ThemeToggle() {
   useEffect(() => {
     setMounted(true);
   }, []);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleThemeToggle = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    setCookie('theme', newTheme); // Save the theme preference in a cookie
+  };
+
+  if (!mounted) {
+    return null; // Avoid rendering until the component is mounted
+  }
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
     setCookie('theme', newTheme); // Save the theme preference in a cookie
