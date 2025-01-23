@@ -16,6 +16,12 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
     }
   }, []);
 
+  // Ensure the theme is mounted before rendering
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
+
   return (
     <NextThemesProvider
       attribute="class"
