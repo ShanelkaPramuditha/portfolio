@@ -1,0 +1,4 @@
+{
+  "tailwindCSS.lint.cssConflict": "warning",
+  "css.lint.unknownAtRules": "ignore"
+}

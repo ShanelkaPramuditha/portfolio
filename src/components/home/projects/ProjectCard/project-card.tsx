@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import useProjects from '@/hooks/use-projects';
 import { data } from '@/constants/data';
-import Spinner from '@/components/Spinner/spinner';
+import Spinner from '@/components/layout/spinner';
 
 interface ProjectCardProps {
   count: number;
@@ -29,7 +29,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ count }) => {
             key={project.id}
             className="w-64 relative bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 h-full"
           >
-            <Link href={project.html_url} target="_blank" rel="noreferrer">
+            <Link
+              href={project.html_url}
+              target="_blank"
+              rel="noreferrer"
+            >
               <div>
                 <Image
                   src={`https://socialify.git.ci/${data.githubUsername}/${project.name}/png?font=KoHo&language=1&name=1&pattern=Circuit%20Board&theme=Auto`}

@@ -1,37 +1,33 @@
-// import Education from '@/components/Education/education';
+import { Separator } from '@/components/ui/separator';
 import React, { lazy, Suspense } from 'react';
 
-const Hero = lazy(() => import('@/components/Hero/hero'));
-const Divider = lazy(() => import('@/components/Divider/divider'));
-const About = lazy(() => import('@/components/About/about'));
-const Contact = lazy(() => import('@/components/Contact/contact'));
-
-const ScrollToTop = lazy(
-  () => import('@/components/ScrollToTop/scroll-to-top'),
-);
-// const Skills = lazy(() => import('@/components/Skills/skills'));
-
-const MaintenanceMode = lazy(
-  () => import('@/components/MaintenanceMode/maintenance-mode'),
-);
-
-const Projects = lazy(() => import('@/components/Projects/projects'));
+// Lazy load each component individually
+const Hero = lazy(() => import('@/components/home/hero'));
+const About = lazy(() => import('@/components/home/about'));
+const Contact = lazy(() => import('@/components/home/contact'));
+const ScrollToTop = lazy(() => import('@/components/layout/scroll-to-top'));
+// const Skills = lazy(() => import('@/components/home/skills'));
+const MaintenanceMode = lazy(() => import('@/components/maintenance-mode'));
+const Projects = lazy(() => import('@/components/home/projects'));
 
 export default function Home() {
   return (
     <main>
-      <Hero />
-      <Divider />
-      <About />
-      <Divider />
-      {/* <Skills /> */}
-      <Projects />
-      <Divider />
-      {/* <Education /> */}
-      <Contact />
-      <Divider />
-      <MaintenanceMode />
-      <ScrollToTop />
+      {/* Wrap lazy-loaded components in Suspense */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Hero />
+        <Separator orientation="horizontal" />
+        <About />
+        <Separator orientation="horizontal" />
+        {/* <Skills /> */}
+        <Projects />
+        <Separator orientation="horizontal" />
+        {/* <Education /> */}
+        <Contact />
+        <Separator orientation="horizontal" />
+        <MaintenanceMode />
+        <ScrollToTop />
+      </Suspense>
     </main>
   );
 }
