@@ -1,4 +1,4 @@
-import Data from '@/constants/data/data.json';
+import Data from '@constants/data/data.json';
 
 const siteData = {
   title: Data.site_title,

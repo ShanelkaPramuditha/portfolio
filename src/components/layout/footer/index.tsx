@@ -6,8 +6,8 @@ import {
   FaWhatsapp,
   FaTelegram,
 } from 'react-icons/fa';
-import { data } from '@/constants/data';
-import { socialMedia } from '@/constants/contact';
+import { data } from '@constants/data';
+import { socialMedia } from '@constants/contact';
 
 const Footer = () => {
   return (
@@ -24,7 +24,10 @@ const Footer = () => {
             Developed
           </Link>{' '}
           by{' '}
-          <Link href={data.developerSite} className="hover:underline">
+          <Link
+            href={data.developerSite}
+            className="hover:underline"
+          >
             {data.firstName} {data.lastName}
           </Link>
         </span>
@@ -58,7 +61,10 @@ const Footer = () => {
             Developed
           </Link>{' '}
           by{' '}
-          <Link href={data.developerSite} className="hover:underline">
+          <Link
+            href={data.developerSite}
+            className="hover:underline"
+          >
             {data.firstName} {data.lastName}
           </Link>
         </span>

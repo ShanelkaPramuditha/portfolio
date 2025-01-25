@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { data } from '@/constants/data';
-import { socialMedia } from '@/constants/contact';
+import { data } from '@constants/data';
+import { socialMedia } from '@constants/contact';
 import {
   FaFacebook,
   FaGithub,

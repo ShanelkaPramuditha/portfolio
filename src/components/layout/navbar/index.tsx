@@ -3,9 +3,9 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { data } from '@/constants/data';
-import ThemeSwitch from '../../theme/ThemeSwitch/theme-switch';
-import { socialMedia } from '@/constants/contact';
+import { data } from '@constants/data';
+import ThemeChanger from '../theme-changer';
+import { socialMedia } from '@constants/contact';
 import localFont from 'next/font/local';
 import {
   FaFacebook,
@@ -15,8 +15,8 @@ import {
   FaWhatsapp,
 } from 'react-icons/fa';
 
-const newFont = localFont({
-  src: '../../assets/fonts/BestermindRegular/BestermindRegular.ttf',
+const BestermindRegularFont = localFont({
+  src: '../../../assets/fonts/BestermindRegular/BestermindRegular.ttf',
 });
 
 const NavBar = () => {
@@ -66,23 +66,29 @@ const NavBar = () => {
         <div className="max-w-screen-xl px-4 mx-auto lg:gap-8 lg:grid lg:grid-cols-12 md:grid md:grid-cols-12 sm:grid sm:grid-cols-12">
           <div className="flex items-center justify-between lg:col-span-2 md:col-span-2 sm:col-span-2">
             <Link
-              className={`text-xl font-bold text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-200 cursor-pointer ${newFont.className}`}
+              className={`text-xl font-bold text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-200 cursor-pointer ${BestermindRegularFont.className}`}
               href="/"
             >
               {data.firstName}
             </Link>
             <div className="flex">
               <div className="sm:hidden me-4">
-                <ThemeSwitch />
+                <ThemeChanger />
               </div>
               <button
                 onClick={() => setNav(!nav)}
                 className="sm:hidden focus:outline-none"
               >
                 {nav ? (
-                  <FaTimes size={24} className="text-black dark:text-white" />
+                  <FaTimes
+                    size={24}
+                    className="text-black dark:text-white"
+                  />
                 ) : (
-                  <FaBars size={24} className="text-black dark:text-white" />
+                  <FaBars
+                    size={24}
+                    className="text-black dark:text-white"
+                  />
                 )}
               </button>
             </div>
@@ -94,7 +100,10 @@ const NavBar = () => {
           >
             <ul className="hidden sm:flex">
               {navItems.map((item, index) => (
-                <li key={index} className="hover:underline cursor-pointer">
+                <li
+                  key={index}
+                  className="hover:underline cursor-pointer"
+                >
                   <Link
                     href={item.url}
                     className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-200 "
@@ -106,7 +115,7 @@ const NavBar = () => {
             </ul>
           </div>
           <div className="hidden gap-8 md:grid lg:grid sm:grid grid-cols-1 justify-items-end self-center">
-            <ThemeSwitch />
+            <ThemeChanger />
           </div>
         </div>
 

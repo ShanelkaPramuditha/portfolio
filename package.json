@@ -10,6 +10,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@radix-ui/react-separator": "^1.1.1",
     "@radix-ui/react-tooltip": "^1.1.7",
     "@react-email/components": "^0.0.19",
     "@tanstack/eslint-plugin-query": "^5.49.1",
