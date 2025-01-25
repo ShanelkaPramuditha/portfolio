@@ -19,13 +19,14 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@lib/*": ["./src/lib/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@assets/*": ["./src/assets/*"],
-      "@services/*": ["./src/services/*"],
-      "@contexts/*": ["./src/contexts/*"],
-      "@constants/*": ["./src/constants/*"],
-      "@components/*": ["./src/components/*"]
+      "@/lib/*": ["./src/lib/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/assets/*": ["./src/assets/*"],
+      "@/services/*": ["./src/services/*"],
+      "@/contexts/*": ["./src/contexts/*"],
+      "@/styles/*": ["./src/theme/styles/*"],
+      "@/constants/*": ["./src/constants/*"],
+      "@/components/*": ["./src/components/*"]
     },
     "target": "ES2017"
   },

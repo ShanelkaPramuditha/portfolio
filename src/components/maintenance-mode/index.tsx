@@ -31,8 +31,8 @@ const MaintenanceMode = () => {
   };
 
   return (
-    <section className="bg-white dark:bg-gray-900 flex items-center justify-center min-h-[calc(100vh-112px)]">
-      <div className="grid max-w-screen-xl px-4 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12 py-5">
+    <section className="flex items-center justify-center min-h-[calc(100vh-112px)]">
+      <div className="grid px-4 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12 py-5">
         <div className="mx-auto place-self-center lg:col-span-7 flex flex-col justify-center items-center">
           <Image
             src={gif}

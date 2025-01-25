@@ -1,4 +1,4 @@
-import { data } from '@constants/data';
+import { data } from '@/constants/data';
 import axios from 'axios';
 
 export const fetchGithub = async (count: number) => {

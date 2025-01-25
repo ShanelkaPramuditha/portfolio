@@ -1,7 +1,7 @@
 import { ReceiveMail } from '@/templates/EmailTemplates/receive-to-me';
 import { Resend } from 'resend';
 import * as React from 'react';
-import { contactFormData } from '@constants/contact';
+import { contactFormData } from '@/constants/contact';
 
 const resend = new Resend(contactFormData.resendApiKey);
 

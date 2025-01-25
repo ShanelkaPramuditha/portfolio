@@ -1,9 +1,9 @@
-import ContactForm from '@components/home/contact/ContactForm/contact-form';
+import ContactForm from '@/components/home/contact/ContactForm/contact-form';
 import Link from 'next/link';
 // Import email and call icon
 import { HiOutlineMail } from 'react-icons/hi';
 import { HiOutlinePhone } from 'react-icons/hi';
-import { directContactData } from '@constants/contact';
+import { directContactData } from '@/constants/contact';
 
 const Contact = () => {
   return (
@@ -12,7 +12,7 @@ const Contact = () => {
         id="contact"
         className="min-h-screen content-center"
       >
-        <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 my-10">
+        <div className="grid px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 my-10">
           <div className="mx-auto place-self-center lg:col-span-8 flex flex-col justify-center items-center">
             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white text-center">
               Get in Touch

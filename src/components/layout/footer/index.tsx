@@ -6,13 +6,14 @@ import {
   FaWhatsapp,
   FaTelegram,
 } from 'react-icons/fa';
-import { data } from '@constants/data';
-import { socialMedia } from '@constants/contact';
+import { data } from '@/constants/data';
+import { socialMedia } from '@/constants/contact';
+import { Card } from '@/components/ui/card';
 
 const Footer = () => {
   return (
-    <footer className="bg-white shadow dark:bg-gray-800">
-      <div className="w-full mx-auto max-w-screen-xl p-4 sm:flex sm:items-center sm:justify-between">
+    <Card className="rounded-b-none">
+      <div className="w-full mx-auto p-4 sm:flex sm:items-center sm:justify-between">
         <span className="text-sm text-gray-500 dark:text-gray-400 hidden sm:block ">
           &copy; {new Date().getFullYear()}{' '}
           <Link
@@ -69,7 +70,7 @@ const Footer = () => {
           </Link>
         </span>
       </div>
-    </footer>
+    </Card>
   );
 };
 

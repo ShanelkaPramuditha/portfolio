@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchGithub } from '@services/github-fetch';
+import { fetchGithub } from '@/services/github-fetch';
 
 const useProjects = (count: number) => {
   const fetchGithubData = (): Promise<any> => fetchGithub(count);

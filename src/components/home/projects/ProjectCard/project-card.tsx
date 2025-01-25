@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import useProjects from '@hooks/use-projects';
-import { data } from '@constants/data';
-import Spinner from '@components/layout/spinner';
+import useProjects from '@/hooks/use-projects';
+import { data } from '@/constants/data';
+import Spinner from '@/components/layout/spinner';
 
 interface ProjectCardProps {
   count: number;
