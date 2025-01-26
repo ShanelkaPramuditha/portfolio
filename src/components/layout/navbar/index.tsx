@@ -53,7 +53,6 @@ const NavBar = () => {
   }, []);
 
   return (
-    // <div className="  top-5 z-50">
     <motion.div
       className={cn(
         'bg-background/30 inset-x-0 top-2 sticky z-50 rounded-2xl mx-auto shadow-sm saturate-100 backdrop-blur-[10px] transition-colors',
@@ -89,7 +88,7 @@ const NavBar = () => {
               >
                 <Link
                   href={item.url}
-                  className={`px-4 py-2 ${isActive ? 'text-primary' : ''}`}
+                  className={`px-4 py-2 ${isActive ? '' : ''}`}
                 >
                   {item.name}
                 </Link>
@@ -122,7 +121,6 @@ const NavBar = () => {
         </div>
       </Card>
     </motion.div>
-    // </div>
   );
 };
 
