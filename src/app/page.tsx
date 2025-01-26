@@ -1,3 +1,4 @@
+import MaintenanceModal from '@/components/layout/modal';
 import { Separator } from '@/components/ui/separator';
 import React, { lazy, Suspense } from 'react';
 
@@ -24,9 +25,17 @@ export default function Home() {
         <Separator orientation="horizontal" />
         {/* <Education /> */}
         <Contact />
-        <Separator orientation="horizontal" />
-        <MaintenanceMode />
+
         <ScrollToTop />
+
+        {/* Maintenance Modal */}
+        <MaintenanceModal
+          type="confirm"
+          open={true}
+          disagreeButtonText="Ok, Got it!"
+        >
+          <MaintenanceMode />
+        </MaintenanceModal>
       </Suspense>
     </main>
   );
