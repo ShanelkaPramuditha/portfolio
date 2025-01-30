@@ -12,6 +12,7 @@ import ScrollIndicator from '@/components/layout/scroll-indicator';
 import { GA_CONFIG } from '@/constants/configs';
 import Script from 'next/script';
 import { AnimatePresence } from 'framer-motion';
+import Cursor from '@/components/layout/cursor';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -70,6 +71,7 @@ export default async function RootLayout({
             </ThemeProvider>
           </ReactQueryProvider>
         </AnimatePresence>
+        <Cursor />
       </body>
     </html>
   );
