@@ -71,7 +71,7 @@ export default async function RootLayout({
             </ThemeProvider>
           </ReactQueryProvider>
         </AnimatePresence>
-        <Cursor />
+        {/* <Cursor /> */}
       </body>
     </html>
   );

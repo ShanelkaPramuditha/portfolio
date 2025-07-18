@@ -1,4 +1,4 @@
-import MaintenanceModal from '@/components/layout/modal';
+// import MaintenanceModal from '@/components/layout/modal';
 import { Separator } from '@/components/ui/separator';
 import React, { lazy, Suspense } from 'react';
 
@@ -8,7 +8,7 @@ const About = lazy(() => import('@/components/home/about'));
 const Contact = lazy(() => import('@/components/home/contact'));
 const ScrollToTop = lazy(() => import('@/components/layout/scroll-to-top'));
 // const Skills = lazy(() => import('@/components/home/skills'));
-const MaintenanceMode = lazy(() => import('@/components/maintenance-mode'));
+// const MaintenanceMode = lazy(() => import('@/components/maintenance-mode'));
 const Projects = lazy(() => import('@/components/home/projects'));
 
 export default function Home() {
@@ -29,13 +29,13 @@ export default function Home() {
         <ScrollToTop />
 
         {/* Maintenance Modal */}
-        <MaintenanceModal
+        {/* <MaintenanceModal
           type="confirm"
           open={true}
           disagreeButtonText="Ok, Got it!"
         >
           <MaintenanceMode />
-        </MaintenanceModal>
+        </MaintenanceModal> */}
       </Suspense>
     </main>
   );
