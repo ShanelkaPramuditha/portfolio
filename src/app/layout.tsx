@@ -1,14 +1,14 @@
-import '@/styles/globals.css';
+import './globals.css';
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { siteData } from '@/constants/data';
 import { ThemeProvider } from '@/theme/ThemeProvider/theme-provider';
 import { ReactQueryProvider } from '@/contexts/QueryProvider/query-provider';
-import NavBar from '@/components/layout/navbar';
-import Footer from '@/components/layout/footer';
+import NavBar from '@/components/partials/navbar';
+import { Footer } from '@/components/partials/footer';
 import Spinner from '@/components/layout/spinner';
-import ScrollIndicator from '@/components/layout/scroll-indicator';
+// import ScrollIndicator from '@/components/layout/scroll-indicator';
 import { GA_CONFIG } from '@/constants/configs';
 import Script from 'next/script';
 import { AnimatePresence } from 'framer-motion';
@@ -30,15 +30,15 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang='en'>
       {/* Add Google Analytics Scripts */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-        strategy="afterInteractive"
+        strategy='afterInteractive'
       />
       <Script
-        id="google-analytics"
-        strategy="afterInteractive"
+        id='google-analytics'
+        strategy='afterInteractive'
       >
         {`
             window.dataLayer = window.dataLayer || [];
@@ -49,17 +49,17 @@ export default async function RootLayout({
       </Script>
       <body className={`${inter.className}`}>
         <AnimatePresence
-          mode="wait"
+          mode='wait'
           initial={false}
         >
           <ReactQueryProvider>
             <ThemeProvider>
-              <div className="max-w-screen-xl mx-auto">
+              <div className='max-w-screen-xl mx-auto'>
                 <NavBar />
-                <ScrollIndicator />
+                {/* <ScrollIndicator /> */}
                 <Suspense
                   fallback={
-                    <div className="content-center min-h-[calc(100vh-100px)]">
+                    <div className='content-center min-h-[calc(100vh-100px)]'>
                       <Spinner />
                     </div>
                   }

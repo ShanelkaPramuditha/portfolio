@@ -17,16 +17,16 @@ export default function Home() {
       {/* Wrap lazy-loaded components in Suspense */}
       <Suspense fallback={<div>Loading...</div>}>
         <Hero />
-        <Separator orientation="horizontal" />
+        <Separator orientation='horizontal' />
         <About />
-        <Separator orientation="horizontal" />
+        <Separator orientation='horizontal' />
         {/* <Skills /> */}
         <Projects />
-        <Separator orientation="horizontal" />
+        <Separator orientation='horizontal' />
         {/* <Education /> */}
         <Contact />
 
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
 
         {/* Maintenance Modal */}
         {/* <MaintenanceModal
