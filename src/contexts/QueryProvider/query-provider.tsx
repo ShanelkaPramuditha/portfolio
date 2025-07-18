@@ -10,7 +10,10 @@ export function ReactQueryProvider({ children }: React.PropsWithChildren) {
   return (
     <QueryClientProvider client={client}>
       {children}
-      <ReactQueryDevtools initialIsOpen={false} buttonPosition="bottom-left" />
+      <ReactQueryDevtools
+        initialIsOpen={false}
+        buttonPosition='bottom-left'
+      />
     </QueryClientProvider>
   );
 }

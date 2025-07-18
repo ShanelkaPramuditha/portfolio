@@ -3,9 +3,8 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { data } from '@/constants/data';
-import ThemeChanger from '../theme-toggle';
+import ThemeChanger from '../../layout/theme-toggle';
 import localFont from 'next/font/local';
-import { Card } from '@/components/ui/card';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -55,7 +54,7 @@ const NavBar = () => {
   return (
     <motion.div
       className={cn(
-        'bg-background/30 inset-x-0 top-2 sticky z-50 rounded-2xl mx-auto shadow-sm saturate-100 backdrop-blur-[10px] transition-colors',
+        'bg-background/30 inset-x-0 top-2 sticky z-50 rounded-2xl mx-auto max-w-7xl shadow-sm saturate-100 backdrop-blur-[10px] transition-colors',
         isScrolled && 'bg-background/80',
       )}
       initial={{
@@ -68,15 +67,15 @@ const NavBar = () => {
         duration: 0.3,
       }}
     >
-      <Card className="container py-3 px-4 border-0 flex items-center justify-between gap-6 bg-transparent">
+      <div className='w-full py-3 px-4 flex items-center justify-between gap-4'>
         <Link
-          className={`text-xl font-bold text-center cursor-pointer ${BestermindRegularFont.className}`}
-          href="/"
+          className={`text-xl font-bold text-center cursor-pointer ${BestermindRegularFont.className} flex-shrink-0`}
+          href='/'
         >
           {data.firstName}
         </Link>
 
-        <ul className="hidden md:flex items-center text-card-foreground">
+        <ul className='hidden md:flex items-center text-card-foreground flex-1 justify-center'>
           {navItems.map((item, index) => {
             const isActive = nav === item.name;
 
@@ -84,7 +83,7 @@ const NavBar = () => {
               <li
                 key={index}
                 onClick={() => setNav(item.name)}
-                className="hover:underline cursor-pointer"
+                className='hover:underline cursor-pointer'
               >
                 <Link
                   href={item.url}
@@ -97,18 +96,18 @@ const NavBar = () => {
           })}
         </ul>
 
-        <div className="flex items-center">
-          <div className="flex md:hidden mr-2 items-center gap-2">
+        <div className='flex items-center flex-shrink-0'>
+          <div className='flex md:hidden mr-2 items-center gap-2'>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
-                  variant="outline"
-                  size="icon"
+                  variant='outline'
+                  size='icon'
                 >
-                  <Menu className="h-5 w-5 rotate-0 scale-100" />
+                  <Menu className='h-5 w-5 rotate-0 scale-100' />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
+              <DropdownMenuContent align='end'>
                 {navItems.map((item, index) => (
                   <DropdownMenuItem key={index}>
                     <a href={item.url}>{item.name}</a>
@@ -119,7 +118,7 @@ const NavBar = () => {
           </div>
           <ThemeChanger />
         </div>
-      </Card>
+      </div>
     </motion.div>
   );
 };

@@ -31,27 +31,27 @@ const MaintenanceMode = () => {
   };
 
   return (
-    <div className="flex items-center justify-center">
-      <div className="grid px-4 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12 py-5">
-        <div className="mx-auto place-self-center lg:col-span-7 flex flex-col justify-center items-center">
+    <div className='flex items-center justify-center'>
+      <div className='grid px-4 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12 py-5'>
+        <div className='mx-auto place-self-center lg:col-span-7 flex flex-col justify-center items-center'>
           <Image
             src={gif}
-            alt="Maintenance"
-            className="max-w-72 max-h-72"
+            alt='Maintenance'
+            className='max-w-72 max-h-72'
             width={500}
             height={500}
             unoptimized
           />
         </div>
-        <div className="mx-auto place-self-center lg:col-span-5 flex flex-col justify-center items-center">
-          <h1 className="text-3xl font-bold text-black dark:text-gray-200">
+        <div className='mx-auto place-self-center lg:col-span-5 flex flex-col justify-center items-center'>
+          <h1 className='text-3xl font-bold text-black dark:text-gray-200'>
             Under Maintenance
           </h1>
-          <p className="text-gray-500 dark:text-gray-400 mt-4 text-center">
+          <p className='text-gray-500 dark:text-gray-400 mt-4 text-center'>
             Sorry for the inconvenience, my website is currently undergoing
             maintenance. Please check back later.
           </p>
-          <p className="text-gray-500 dark:text-gray-400 mt-2 text-center">
+          <p className='text-gray-500 dark:text-gray-400 mt-2 text-center'>
             Thank you for your patience.
           </p>
           {/* <div className="mt-4 text-center">

@@ -27,7 +27,7 @@ export function ThemeProvider({
 
   return (
     <NextThemesProvider
-      attribute="class"
+      attribute='class'
       defaultTheme={initialTheme}
       enableSystem
       disableTransitionOnChange

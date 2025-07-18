@@ -23,13 +23,19 @@ export const ReceiveMail: React.FC<Readonly<ReceiveMailProps>> = ({
   message,
 }) => (
   <div>
-    <Html lang="en">
+    <Html lang='en'>
       <Head>
         <title>Portfolio Contact Form</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="x-apple-disable-message-reformatting" />
+        <meta charSet='utf-8' />
+        <meta
+          name='viewport'
+          content='width=device-width'
+        />
+        <meta
+          httpEquiv='X-UA-Compatible'
+          content='IE=edge'
+        />
+        <meta name='x-apple-disable-message-reformatting' />
       </Head>
       <Body>
         <Container width={600}>
