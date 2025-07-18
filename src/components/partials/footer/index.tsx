@@ -12,7 +12,7 @@ import { Card } from '@/components/ui/card';
 
 export function Footer() {
   return (
-    <Card className='rounded-b-none'>
+    <Card className='rounded-b-none p-0'>
       <div className='w-full mx-auto p-4 sm:flex sm:items-center sm:justify-between'>
         <span className='text-sm text-gray-500 dark:text-gray-400 hidden sm:block '>
           &copy; {new Date().getFullYear()}{' '}
