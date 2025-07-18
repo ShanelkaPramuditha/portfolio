@@ -78,10 +78,10 @@ const Modal: React.FC<ModalProps> = ({
         >
           {triggerButtonLabel && (
             <AlertDialogTrigger asChild>
-              <Button variant="outline">{triggerButtonLabel}</Button>
+              <Button variant='outline'>{triggerButtonLabel}</Button>
             </AlertDialogTrigger>
           )}
-          <AlertDialogContent className="w-[800px] max-w-full overflow-y-auto">
+          <AlertDialogContent className='w-[800px] max-w-full overflow-y-auto'>
             <AlertDialogHeader>
               <AlertDialogTitle className={props?.titleClassName}>
                 {title || ''}
@@ -119,11 +119,11 @@ const Modal: React.FC<ModalProps> = ({
         >
           {triggerButtonLabel && (
             <DialogTrigger asChild>
-              <Button variant="outline">{triggerButtonLabel}</Button>
+              <Button variant='outline'>{triggerButtonLabel}</Button>
             </DialogTrigger>
           )}
 
-          <DialogContent className="w-[800px] max-w-full overflow-y-auto">
+          <DialogContent className='w-[800px] max-w-full overflow-y-auto'>
             <DialogHeader>
               <DialogTitle className={props?.titleClassName}>
                 {title || ''}
@@ -143,7 +143,7 @@ const Modal: React.FC<ModalProps> = ({
                 <DialogFooter>
                   {disagreeButtonText && (
                     <Button
-                      variant="outline"
+                      variant='outline'
                       onClick={() => handleOpenChange(false)}
                     >
                       {disagreeButtonText}
