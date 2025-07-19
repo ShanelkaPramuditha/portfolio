@@ -86,7 +86,7 @@ export function Hero() {
                     const element = document.getElementById('contact');
                     element?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  variant='outline'
+                  variant='default'
                 >
                   Get in Touch
                 </Button>
@@ -94,7 +94,7 @@ export function Hero() {
                   onClick={() => {
                     window.open(data.cvLink, '_blank', 'noopener,noreferrer');
                   }}
-                  variant='secondary'
+                  variant='outline'
                 >
                   Check Resume
                 </Button>

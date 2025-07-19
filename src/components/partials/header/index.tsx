@@ -16,17 +16,42 @@ import { motion } from 'motion/react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
+const OFFSET = 86;
+
 export function Header() {
   const [nav, setNav] = useState('');
 
   const navItems = [
-    { name: 'About', url: '/#about' },
     { name: 'Skills', url: '/#skills' },
-    { name: 'Education', url: '/#education' },
     { name: 'Experience', url: '/#experience' },
     { name: 'Projects', url: '/#projects' },
+    { name: 'Education', url: '/#education' },
     { name: 'Contact', url: '/#contact' }
   ];
+
+  // Track active section based on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = OFFSET;
+      let currentSection = '';
+      for (const item of navItems) {
+        const id = item.url.split('#')[1];
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.getBoundingClientRect().top;
+          if (top - offset <= 0) {
+            currentSection = item.name;
+          }
+        }
+      }
+      setNav(currentSection);
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // initialize on mount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [navItems]);
 
   // Check if scrolled down to show shadow
   const [isScrolled, setIsScrolled] = useState(false);
@@ -83,10 +108,19 @@ export function Header() {
                   <li key={index}>
                     <Link
                       href={item.url}
-                      onClick={() => setNav(item.name)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setNav(item.name);
+                        const id = item.url.split('#')[1];
+                        const el = document.getElementById(id);
+                        if (el) {
+                          const y = el.getBoundingClientRect().top + window.scrollY - OFFSET;
+                          window.scrollTo({ top: y, behavior: 'smooth' });
+                        }
+                      }}
                       className={cn(
-                        'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-accent hover:text-accent-foreground',
-                        isActive && 'bg-accent text-accent-foreground'
+                        'px-0 py-2 mx-2 text-sm font-medium transition-all duration-200 hover:text-accent-foreground hover:border-b-1 hover:border-primary',
+                        isActive && 'text-accent-foreground border-primary border-b-1'
                       )}
                     >
                       {item.name}
@@ -114,7 +148,16 @@ export function Header() {
                       <Link
                         href={item.url}
                         className='w-full cursor-pointer'
-                        onClick={() => setNav(item.name)}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setNav(item.name);
+                          const id = item.url.split('#')[1];
+                          const el = document.getElementById(id);
+                          if (el) {
+                            const y = el.getBoundingClientRect().top + window.scrollY - 112;
+                            window.scrollTo({ top: y, behavior: 'smooth' });
+                          }
+                        }}
                       >
                         {item.name}
                       </Link>
