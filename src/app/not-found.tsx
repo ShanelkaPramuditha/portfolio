@@ -35,8 +35,8 @@ export default function NotFound() {
         >
           <h1 className='text-3xl md:text-4xl font-bold text-foreground'>Oops! Page Not Found</h1>
           <p className='text-lg text-muted-foreground max-w-md mx-auto'>
-            The page you're looking for seems to have wandered off into the digital void. Don't
-            worry, it happens to the best of us!
+            The page you&apos;re looking for seems to have wandered off into the digital void.
+            Don&apos;t worry, it happens to the best of us!
           </p>
         </div>
 
