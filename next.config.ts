@@ -9,11 +9,19 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'raw.githubusercontent.com'
+      },
+      {
+        protocol: 'https',
         hostname: 'avatars.githubusercontent.com'
       },
       {
         protocol: 'https',
         hostname: 'socialify.git.ci'
+      },
+      {
+        protocol: 'https',
+        hostname: 'opengraph.githubassets.com'
       }
       // {
       //   protocol: 'https',

@@ -25,6 +25,7 @@ export type Project = {
   fork: boolean;
   url: string;
   forks_url: string;
+  svn_url: string;
   language: string | null;
 };
 
