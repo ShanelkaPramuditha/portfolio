@@ -18,7 +18,13 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   if (!mounted) return null; // Avoid SSR issues
 
   return (
-    <NextThemesProvider attribute='class' defaultTheme={theme || 'light'} enableSystem {...props}>
+    <NextThemesProvider
+      attribute='class'
+      defaultTheme={theme || 'dark'}
+      forcedTheme='dark'
+      enableSystem
+      {...props}
+    >
       {children}
     </NextThemesProvider>
   );

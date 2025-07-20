@@ -1,6 +1,6 @@
 'use client';
 
-import { ThemeToggle } from '@/components/partials/theme-toggle';
+// import { ThemeToggle } from '@/components/partials/theme-toggle';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -23,6 +23,7 @@ export function Header() {
 
   const navItems = useMemo(
     () => [
+      { name: 'About', url: '/#about' },
       { name: 'Skills', url: '/#skills' },
       { name: 'Experience', url: '/#experience' },
       { name: 'Projects', url: '/#projects' },
@@ -102,7 +103,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className='hidden md:flex items-center flex-1 justify-center'>
+          <nav className='hidden md:flex items-center flex-1 justify-end'>
             <ul className='flex items-center space-x-1'>
               {navItems.map((item, index) => {
                 const isActive = nav === item.name;
@@ -122,7 +123,7 @@ export function Header() {
                         }
                       }}
                       className={cn(
-                        'px-0 py-2 mx-2 text-sm font-medium transition-all duration-200 hover:text-accent-foreground hover:border-b-1 hover:border-primary',
+                        'px-0 py-2 ms-2 text-sm font-medium transition-all duration-200 hover:text-accent-foreground hover:border-b-1 hover:border-primary',
                         isActive && 'text-accent-foreground border-primary border-b-1'
                       )}
                     >
@@ -171,7 +172,7 @@ export function Header() {
             </div>
 
             {/* Theme Toggle */}
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
           </div>
         </div>
       </motion.div>

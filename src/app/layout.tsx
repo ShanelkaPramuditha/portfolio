@@ -36,7 +36,7 @@ export default function RootLayout({
               <Header />
 
               {/* Main content area - automatically handles header spacing */}
-              <main className='flex-1'>{children}</main>
+              <main className='flex-1 px-4 overflow-clip'>{children}</main>
 
               {/* Footer */}
               <Footer />
