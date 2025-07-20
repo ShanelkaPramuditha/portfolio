@@ -14,20 +14,23 @@ import { cn } from '@/lib/utils';
 import { Menu } from 'lucide-react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 const OFFSET = 86;
 
 export function Header() {
   const [nav, setNav] = useState('');
 
-  const navItems = [
-    { name: 'Skills', url: '/#skills' },
-    { name: 'Experience', url: '/#experience' },
-    { name: 'Projects', url: '/#projects' },
-    { name: 'Education', url: '/#education' },
-    { name: 'Contact', url: '/#contact' }
-  ];
+  const navItems = useMemo(
+    () => [
+      { name: 'Skills', url: '/#skills' },
+      { name: 'Experience', url: '/#experience' },
+      { name: 'Projects', url: '/#projects' },
+      { name: 'Education', url: '/#education' },
+      { name: 'Contact', url: '/#contact' }
+    ],
+    []
+  );
 
   // Track active section based on scroll
   useEffect(() => {
