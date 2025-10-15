@@ -23,12 +23,13 @@ export function Header() {
 
   const navItems = useMemo(
     () => [
+      { name: 'Home', url: '/#home' },
       // { name: 'About', url: '/#about' },
       { name: 'Skills', url: '/#skills' },
       // { name: 'Experience', url: '/#experience' },
-      { name: 'Projects', url: '/#projects' }
+      { name: 'Projects', url: '/#projects' },
       // { name: 'Education', url: '/#education' },
-      // { name: 'Contact', url: '/#contact' }
+      { name: 'Contact', url: '/#contact' }
     ],
     []
   );
@@ -84,16 +85,22 @@ export function Header() {
           isScrolled && 'bg-background/80 shadow-md'
         )}
         initial={{
-          y: -100
+          x: 0,
+          y: -70,
+          opacity: 0
         }}
         animate={{
-          y: 0
+          x: 0,
+          y: 0,
+          opacity: 1
         }}
         transition={{
-          duration: 0.3
+          duration: 0.1,
+          ease: 'easeOut',
+          delay: 0,
         }}
       >
-        <div className='w-full py-4 px-6 flex items-center justify-between gap-4'>
+        <div className='w-full py-2 px-6 flex items-center justify-between gap-4'>
           {/* Logo/Brand */}
           <Link
             className={`text-xl sm:text-2xl font-bold cursor-pointer ${bestermindRegular.className} flex-shrink-0 hover:opacity-80 transition-opacity`}
@@ -123,7 +130,7 @@ export function Header() {
                         }
                       }}
                       className={cn(
-                        'px-0 py-2 mx-2 text-sm font-medium transition-all duration-200 hover:text-accent-foreground hover:border-b-1 hover:border-primary',
+                        'px-0 py-2 mx-2 text-sm font-semibold transition-all duration-200 hover:text-accent-foreground hover:border-b-1 hover:border-primary',
                         isActive && 'text-accent-foreground border-primary border-b-1'
                       )}
                     >

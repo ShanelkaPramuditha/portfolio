@@ -6,12 +6,12 @@ import { useProjects } from '@/hooks/use-projects';
 import Link from 'next/link';
 
 export function Projects() {
-  const { data: projects, isPending } = useProjects(8, 1);
+  const { data: projects, isPending } = useProjects(4, 1);
 
   return (
     <section id='projects' className='min-h-screen flex flex-col items-center justify-center py-12'>
       <div className='max-w-3xl w-full text-center mb-8'>
-        <h2 className='text-4xl font-extrabold text-slate-900 dark:text-slate-50 mb-2'>
+        <h2 className='text-2xl font-bold text-slate-900 dark:text-slate-50 mb-2'>
           Featured Projects
         </h2>
         <p className='text-slate-600 dark:text-slate-300 mb-4'>
@@ -20,9 +20,8 @@ export function Projects() {
       </div>
       <div className='w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8'>
         {isPending ||
-          !projects ||
-          (projects?.length !== undefined &&
-            Array.from({ length: 4 }).map((_, i) => <ProjectCardSkeleton key={i} />))}
+          !projects &&
+          Array.from({ length: 4 }).map((_, i) => <ProjectCardSkeleton key={i} />)}
 
         {projects?.length !== undefined &&
           projects?.length > 0 &&
@@ -30,8 +29,11 @@ export function Projects() {
             <ProjectCard
               key={project.id}
               title={project.name}
-              language={project.language || ''}
+              description={project.description || 'No description provided.'}
+              stars={project.fork ? 0 : project.stargazers_count}
+              tags={project.language ? [project.language] : ['Code']}
               url={project.svn_url}
+              githubUrl={project.html_url}
             />
           ))}
       </div>

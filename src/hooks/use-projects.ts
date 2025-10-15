@@ -27,6 +27,10 @@ export type Project = {
   forks_url: string;
   svn_url: string;
   language: string | null;
+  stargazers_count: number;
+  watchers_count: number;
+  size: number;
+  default_branch: string;
 };
 
 const GITHUB_API_URL = 'https://api.github.com';

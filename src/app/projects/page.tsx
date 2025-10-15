@@ -67,7 +67,7 @@ export default function Page() {
       <div className='mb-8 mt-4 flex flex-col items-center justify-center'>
         <div className='flex items-center gap-3 mb-2'>
           <IconStack className='h-8 w-8 text-blue-500' />
-          <span className='text-3xl font-extrabold text-slate-900 dark:text-slate-50'>
+          <span className='text-2xl font-bold text-slate-900 dark:text-slate-50'>
             Featured Projects
           </span>
         </div>
@@ -80,8 +80,11 @@ export default function Page() {
           <ProjectCard
             key={project.id}
             title={project.name}
-            language={project.language || ''}
+            description={project.description || 'No description provided.'}
+            stars={project.fork ? 0 : project.stargazers_count}
+            tags={project.language ? [project.language] : ['Code']}
             url={project.svn_url}
+            githubUrl={project.html_url}
           />
         ))}
       </div>
@@ -90,7 +93,7 @@ export default function Page() {
           {isFetching ? (
             <>
               <div className='w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-2'>
-                {Array.from({ length: 2 }).map((_, i) => (
+                {Array.from({ length: 4 }).map((_, i) => (
                   <ProjectCardSkeleton key={i} />
                 ))}
               </div>
@@ -104,7 +107,7 @@ export default function Page() {
           )}
         </div>
       )}
-      {!hasMore && <p className='py-4 text-center text-slate-400'>No more projects to load.</p>}
+      {!hasMore && <p className='py-4 text-center text-slate-400'>No more public projects to load.</p>}
     </div>
   );
 }
