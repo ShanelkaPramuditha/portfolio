@@ -92,7 +92,7 @@ export function Skills() {
     <section id='skills' className='flex w-full flex-col items-center py-16 sm:py-24'>
       <div className='container'>
         <div className='max-w-3xl mx-auto w-full text-center mb-10'>
-          <h2 className='text-2xl font-bold text-slate-900 dark:text-slate-50 mb-2'>
+          <h2 className='text-3xl font-bold text-slate-900 dark:text-slate-50 mb-2'>
             My Skills & Expertise
           </h2>
           <p className='text-slate-600 dark:text-slate-300'>

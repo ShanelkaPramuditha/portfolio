@@ -32,12 +32,12 @@ export default function RootLayout({
         <QueryProvider>
           <ThemeProvider>
             <div className='relative min-h-screen flex flex-col'>
-              <div className='max-w-7xl w-full flex-1 mx-auto flex flex-col'>
+              <div className='max-w-7xl w-full flex-1 mx-auto flex flex-col px-4'>
                 {/* Header with proper spacing */}
                 <Header />
 
                 {/* Main content area - automatically handles header spacing */}
-                <main className='flex-1 px-4 overflow-clip'>{children}</main>
+                <main className='flex-1 overflow-clip'>{children}</main>
               </div>
               {/* Footer */}
               <Footer />

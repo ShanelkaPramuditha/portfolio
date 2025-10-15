@@ -2,16 +2,16 @@
 
 import { ProjectCard, ProjectCardSkeleton } from '@/components/custom/project-card';
 import { Button } from '@/components/ui/button';
-import { useProjects } from '@/hooks/use-projects';
+import { useProjects } from '@/queries/github.queries';
 import Link from 'next/link';
 
 export function Projects() {
-  const { data: projects, isPending } = useProjects(4, 1);
+  const { data: projects, isPending } = useProjects(8, 1);
 
   return (
-    <section id='projects' className='min-h-screen flex flex-col items-center justify-center py-12'>
+    <section id='projects' className='flex flex-col items-center justify-center py-12'>
       <div className='max-w-3xl w-full text-center mb-8'>
-        <h2 className='text-2xl font-bold text-slate-900 dark:text-slate-50 mb-2'>
+        <h2 className='text-3xl font-bold text-slate-900 dark:text-slate-50 mb-2'>
           Featured Projects
         </h2>
         <p className='text-slate-600 dark:text-slate-300 mb-4'>

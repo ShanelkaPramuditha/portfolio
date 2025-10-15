@@ -30,9 +30,9 @@ const socialMedia = [
 ];
 
 const contactFormData = {
-  resendApiKey: process.env.NEXT_PUBLIC_RESEND_API_KEY || '',
-  fromMail: process.env.NEXT_PUBLIC_FROM_EMAIL || '',
-  toMail: process.env.NEXT_PUBLIC_TO_EMAIL || ''
+  resendApiKey: process.env.RESEND_API_KEY,
+  fromMail: process.env.FROM_EMAIL,
+  toMail: process.env.TO_EMAIL
 };
 
 const directContactData = {

@@ -1,7 +1,8 @@
 'use client';
 
 import { ProjectCard, ProjectCardSkeleton } from '@/components/custom/project-card';
-import { Project, useProjects } from '@/hooks/use-projects';
+import { useProjects } from '@/queries/github.queries';
+import { Project } from '@/types/project.types';
 import { IconLoader, IconStack } from '@tabler/icons-react';
 import { useState, useRef, useEffect } from 'react';
 

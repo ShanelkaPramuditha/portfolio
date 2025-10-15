@@ -17,9 +17,9 @@ import Link from 'next/link';
 export function Hero() {
   return (
     <>
-      <section id='home' className='content-center min-h-[calc(100vh-152px)]'>
+      <section id='home' className='content-center min-h-[calc(100vh-110px)]'>
         <div>
-          <div className='grid px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12'>
+          <div className='grid py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12'>
             {/* Desktop View */}
             <div className='hidden lg:flex justify-center items-center lg:col-span-5 lg:mt-0'>
               <motion.div

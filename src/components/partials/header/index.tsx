@@ -78,7 +78,7 @@ export function Header() {
   }, []);
 
   return (
-    <div className='sticky top-0 z-50 w-full px-2 pt-2 pb-2'>
+    <div className='sticky top-0 z-50 w-full py-2'>
       <motion.div
         className={cn(
           'bg-background/30 rounded-2xl mx-auto max-w-7xl shadow-sm saturate-100 backdrop-blur-[10px] transition-all duration-300 border border-border/40',
