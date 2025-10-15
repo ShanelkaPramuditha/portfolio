@@ -29,16 +29,10 @@ const socialMedia = [
   }
 ];
 
-const contactFormData = {
-  resendApiKey: process.env.RESEND_API_KEY,
-  fromMail: process.env.FROM_EMAIL,
-  toMail: process.env.TO_EMAIL
-};
-
 const directContactData = {
   email: Data.contact.email,
   phone: Data.contact.phone,
   scheduleCall: Data.links.calendly
 };
 
-export { contactFormData, directContactData, socialMedia };
+export { directContactData, socialMedia };

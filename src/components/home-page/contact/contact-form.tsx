@@ -20,6 +20,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { contactFormSchema, type ContactFormValues } from '@/lib/validations/contact';
 import { useSendContactEmail } from '@/queries/contact.queries';
+import { analytics } from '@/lib/analytics';
 
 const ContactForm: React.FC = () => {
   const [counter, setCounter] = useState(20);
@@ -39,6 +40,9 @@ const ContactForm: React.FC = () => {
     onSuccess: () => {
       toast.success('Message sent successfully! Check your email for a confirmation. 📧');
 
+      // Track successful form submission
+      analytics.contactFormSubmit(true);
+
       // Start countdown and reset form
       let count = 20;
       setCounter(count);
@@ -54,6 +58,9 @@ const ContactForm: React.FC = () => {
     onError: (error: Error) => {
       console.error('Error sending email:', error);
       toast.error(error.message || 'Failed to send message. Please try again.');
+
+      // Track failed form submission
+      analytics.contactFormSubmit(false);
     },
   });
 

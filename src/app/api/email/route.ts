@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
-import { contactFormData } from '@/constants/contact';
 import { contactFormSchema } from '@/lib/validations/contact';
 import ContactFormEmail from '@/emails/contact-form-email';
 import ThankYouEmail from '@/emails/thank-you-email';
+import { EMAIL_CONFIG } from '@/constants/configs';
 
-const resend = new Resend(contactFormData.resendApiKey);
+const resend = new Resend(EMAIL_CONFIG.resend.apiKey);
 
 export async function POST(request: NextRequest) {
   try {
@@ -32,15 +32,15 @@ export async function POST(request: NextRequest) {
     const { fullName, email, mobile, message } = validationResult.data;
 
     // Validate environment variables
-    if (!contactFormData.fromMail || !contactFormData.toMail) {
+    if (!EMAIL_CONFIG.resend.fromEmail || !EMAIL_CONFIG.resend.toEmail) {
       console.error('Missing email configuration');
       return NextResponse.json({ error: 'Email service not configured' }, { status: 500 });
     }
 
     // Send notification email to yourself
     const notificationEmail = resend.emails.send({
-      from: contactFormData.fromMail,
-      to: [contactFormData.toMail],
+      from: EMAIL_CONFIG.resend.fromEmail,
+      to: [EMAIL_CONFIG.resend.toEmail],
       subject: `Portfolio Contact: Message from ${fullName}`,
       replyTo: email,
       react: ContactFormEmail({
@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
 
     // Send thank you email to the sender
     const thankYouEmailPromise = resend.emails.send({
-      from: contactFormData.fromMail,
+      from: EMAIL_CONFIG.resend.fromEmail,
       to: [email],
       subject: 'Thanks for reaching out! 🚀',
       react: ThankYouEmail({
