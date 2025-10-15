@@ -14,12 +14,15 @@ import { cn } from '@/lib/utils';
 import { Menu } from 'lucide-react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
 const OFFSET = 86;
 
 export function Header() {
   const [nav, setNav] = useState('');
+  const pathname = usePathname();
+  const router = useRouter();
 
   const navItems = useMemo(
     () => [
@@ -122,11 +125,18 @@ export function Header() {
                       onClick={(e) => {
                         e.preventDefault();
                         setNav(item.name);
-                        const id = item.url.split('#')[1];
-                        const el = document.getElementById(id);
-                        if (el) {
-                          const y = el.getBoundingClientRect().top + window.scrollY - OFFSET;
-                          window.scrollTo({ top: y, behavior: 'smooth' });
+
+                        // If not on home page, navigate to home first
+                        if (pathname !== '/') {
+                          router.push(item.url);
+                        } else {
+                          // Already on home page, just scroll
+                          const id = item.url.split('#')[1];
+                          const el = document.getElementById(id);
+                          if (el) {
+                            const y = el.getBoundingClientRect().top + window.scrollY - OFFSET;
+                            window.scrollTo({ top: y, behavior: 'smooth' });
+                          }
                         }
                       }}
                       className={cn(
@@ -162,11 +172,18 @@ export function Header() {
                         onClick={(e) => {
                           e.preventDefault();
                           setNav(item.name);
-                          const id = item.url.split('#')[1];
-                          const el = document.getElementById(id);
-                          if (el) {
-                            const y = el.getBoundingClientRect().top + window.scrollY - 112;
-                            window.scrollTo({ top: y, behavior: 'smooth' });
+
+                          // If not on home page, navigate to home first
+                          if (pathname !== '/') {
+                            router.push(item.url);
+                          } else {
+                            // Already on home page, just scroll
+                            const id = item.url.split('#')[1];
+                            const el = document.getElementById(id);
+                            if (el) {
+                              const y = el.getBoundingClientRect().top + window.scrollY - 112;
+                              window.scrollTo({ top: y, behavior: 'smooth' });
+                            }
                           }
                         }}
                       >
