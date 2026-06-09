@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { MapPin, Calendar } from 'lucide-react';
 import { experiences } from '@/data/experience';
 
@@ -6,38 +7,59 @@ export function Experience() {
     <section id='experience' className='w-full space-y-6'>
       <p className='text-2xl font-light tracking-tight sm:text-3xl'>Experience</p>
 
-      <div className='relative'>
-        {/* Vertical tree line */}
-        <div className='absolute left-[7px] top-2 bottom-2 w-px bg-border' />
-
-        <div className='flex flex-col gap-8'>
-          {experiences.map((exp, index) => (
-            <div key={index} className='relative flex gap-5 pl-0'>
-              {/* Dot on the tree line */}
-              <div className='relative mt-1.5 shrink-0'>
-                <div className='h-[15px] w-[15px] rounded-full border-2 border-border bg-background' />
+      <div className='flex flex-col'>
+        {experiences.map((exp, index) => {
+          const isLast = index === experiences.length - 1;
+          return (
+            <div key={index} className='flex gap-4'>
+              {/* Tree column */}
+              <div className='flex flex-col items-center'>
+                {/* Dot */}
+                <div className='mt-3.5 h-3 w-3 shrink-0 rounded-full border-2 border-primary bg-background' />
+                {/* Line segment — hidden for last item */}
+                {!isLast && <div className='mt-1 w-px flex-1 bg-border' />}
               </div>
 
               {/* Card */}
-              <div className='flex min-w-0 flex-1 flex-col gap-3 rounded-xl border border-dashed border-border/80 bg-card p-4'>
+              <div className={`flex min-w-0 flex-1 flex-col overflow-hidden rounded-xl border border-dashed border-border/80 bg-card ${isLast ? '' : 'mb-4'}`}>
                 {/* Header */}
-                <div className='flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between'>
-                  <div>
-                    <p className='text-base font-medium tracking-tight'>{exp.role}</p>
+                <div className='flex items-start gap-3 p-4 pb-3'>
+                  {/* Logo */}
+                  <div className='flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border/60 bg-background'>
+                    {exp.logo ? (
+                      <Image
+                        src={exp.logo}
+                        alt={exp.company}
+                        width={40}
+                        height={40}
+                        className='h-full w-full object-contain'
+                      />
+                    ) : (
+                      <span className='text-sm font-semibold text-muted-foreground'>
+                        {exp.company.charAt(0)}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Role + company + type badge */}
+                  <div className='flex min-w-0 flex-1 flex-col gap-0.5'>
+                    <div className='flex flex-wrap items-center justify-between gap-2'>
+                      <p className='text-sm font-medium leading-tight'>{exp.role}</p>
+                      <span className='shrink-0 rounded-md border border-dashed border-border/70 bg-background px-2 py-0.5 font-mono text-[11px] text-muted-foreground'>
+                        {exp.type}
+                      </span>
+                    </div>
                     <p className='text-sm text-muted-foreground'>{exp.company}</p>
                   </div>
-                  <span className='w-fit rounded-md border border-dashed border-border/70 bg-background px-2 py-0.5 font-mono text-xs text-muted-foreground'>
-                    {exp.type}
-                  </span>
                 </div>
 
                 {/* Meta */}
-                <div className='flex flex-wrap gap-3 text-xs text-muted-foreground'>
-                  <span className='flex items-center gap-1'>
+                <div className='flex flex-wrap gap-4 border-t border-dashed border-border/60 px-4 py-2.5 text-xs text-muted-foreground'>
+                  <span className='flex items-center gap-1.5'>
                     <Calendar className='h-3 w-3 shrink-0' />
                     {exp.startDate} – {exp.endDate}
                   </span>
-                  <span className='flex items-center gap-1'>
+                  <span className='flex items-center gap-1.5'>
                     <MapPin className='h-3 w-3 shrink-0' />
                     {exp.location}
                   </span>
@@ -45,10 +67,10 @@ export function Experience() {
 
                 {/* Bullets */}
                 {exp.bullets.length > 0 && (
-                  <ul className='flex flex-col gap-1.5 border-t border-dashed border-border/60 pt-3'>
+                  <ul className='flex flex-col gap-2 border-t border-dashed border-border/60 px-4 py-3'>
                     {exp.bullets.map((bullet, i) => (
-                      <li key={i} className='flex gap-2 text-sm text-muted-foreground'>
-                        <span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground/50' />
+                      <li key={i} className='flex gap-2.5 text-sm text-muted-foreground'>
+                        <span className='mt-[7px] h-1 w-1 shrink-0 rounded-full bg-muted-foreground/40' />
                         {bullet}
                       </li>
                     ))}
@@ -56,8 +78,8 @@ export function Experience() {
                 )}
               </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </section>
   );
