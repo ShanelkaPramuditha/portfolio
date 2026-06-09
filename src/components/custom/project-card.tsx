@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Github, Link as LinkIcon } from 'lucide-react';
@@ -35,7 +37,6 @@ export function ProjectCard({
       {/* Image */}
       <div className='overflow-hidden rounded-lg'>
         <Image
-          priority
           width={600}
           height={300}
           placeholder='blur'
@@ -91,7 +92,8 @@ export function ProjectCard({
 export function ProjectCardSkeleton() {
   return (
     <div className='flex flex-col gap-2 rounded-xl border border-dashed border-border/80 bg-card p-2 w-full overflow-hidden'>
-      <Skeleton className='h-36 w-full rounded-lg' />
+      {/* Image placeholder — same aspect ratio as the card image (600×300 = 2:1) */}
+      <Skeleton className='w-full aspect-[2/1] rounded-lg' />
       <div className='mt-2 px-2 space-y-2'>
         <Skeleton className='h-5 w-3/4' />
         <Skeleton className='h-4 w-full' />
@@ -99,7 +101,6 @@ export function ProjectCardSkeleton() {
       </div>
       <div className='flex gap-3 px-2 mt-2'>
         <Skeleton className='h-3 w-12' />
-        <Skeleton className='h-3 w-16' />
       </div>
       <div className='mx-2 h-px bg-border' />
       <div className='flex items-center justify-between px-2 pb-1'>

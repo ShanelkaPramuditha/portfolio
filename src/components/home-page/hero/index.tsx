@@ -62,7 +62,12 @@ export function Hero() {
             <div className='flex flex-wrap gap-3'>
               <Button
                 onClick={() => {
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  const el = document.getElementById('contact');
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY - 86;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                    window.history.pushState(null, '', '/#contact');
+                  }
                 }}
                 variant='default'
               >
