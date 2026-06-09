@@ -20,46 +20,36 @@ import { useEffect, useMemo, useState } from 'react';
 const OFFSET = 86;
 
 export function Header() {
-  const [nav, setNav] = useState('');
   const pathname = usePathname();
   const router = useRouter();
 
   const navItems = useMemo(
     () => [
       { name: 'Home', url: '/#home' },
-      // { name: 'About', url: '/#about' },
+      { name: 'Experience', url: '/#experience' },
+      { name: 'Education', url: '/#education' },
       { name: 'Skills', url: '/#skills' },
-      // { name: 'Experience', url: '/#experience' },
       { name: 'Projects', url: '/#projects' },
-      // { name: 'Education', url: '/#education' },
       { name: 'Contact', url: '/#contact' }
     ],
     []
   );
 
-  // Track active section based on scroll
+  // Scroll to the hash section on initial load with header offset
   useEffect(() => {
-    const handleScroll = () => {
-      const offset = OFFSET;
-      let currentSection = '';
-      for (const item of navItems) {
-        const id = item.url.split('#')[1];
-        const el = document.getElementById(id);
-        if (el) {
-          const top = el.getBoundingClientRect().top;
-          if (top - offset <= 0) {
-            currentSection = item.name;
-          }
-        }
+    const hash = window.location.hash;
+    if (!hash) return;
+    const id = hash.replace('#', '');
+    // Use requestAnimationFrame to wait for the DOM to be fully painted
+    const raf = requestAnimationFrame(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.scrollY - OFFSET;
+        window.scrollTo({ top: y, behavior: 'instant' });
       }
-      setNav(currentSection);
-    };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // initialize on mount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [navItems]);
+    });
+    return () => cancelAnimationFrame(raf);
+  }, []);
 
   // Check if scrolled down to show shadow
   const [isScrolled, setIsScrolled] = useState(false);
@@ -100,7 +90,7 @@ export function Header() {
         transition={{
           duration: 0.1,
           ease: 'easeOut',
-          delay: 0,
+          delay: 0
         }}
       >
         <div className='w-full py-2 px-6 flex items-center justify-between gap-4'>
@@ -115,40 +105,30 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className='hidden md:flex items-center flex-1 justify-center'>
             <ul className='flex items-center space-x-1'>
-              {navItems.map((item, index) => {
-                const isActive = nav === item.name;
-
-                return (
-                  <li key={index}>
-                    <Link
-                      href={item.url}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setNav(item.name);
-
-                        // If not on home page, navigate to home first
-                        if (pathname !== '/') {
-                          router.push(item.url);
-                        } else {
-                          // Already on home page, just scroll
-                          const id = item.url.split('#')[1];
-                          const el = document.getElementById(id);
-                          if (el) {
-                            const y = el.getBoundingClientRect().top + window.scrollY - OFFSET;
-                            window.scrollTo({ top: y, behavior: 'smooth' });
-                          }
+              {navItems.map((item, index) => (
+                <li key={index}>
+                  <Link
+                    href={item.url}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (pathname !== '/') {
+                        router.push(item.url);
+                      } else {
+                        const id = item.url.split('#')[1];
+                        const el = document.getElementById(id);
+                        if (el) {
+                          const y = el.getBoundingClientRect().top + window.scrollY - OFFSET;
+                          window.scrollTo({ top: y, behavior: 'smooth' });
                         }
-                      }}
-                      className={cn(
-                        'px-0 py-2 mx-2 text-sm font-semibold transition-all duration-200 hover:text-accent-foreground hover:border-b-1 hover:border-primary',
-                        isActive && 'text-accent-foreground border-primary border-b-1'
-                      )}
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                );
-              })}
+                        window.history.pushState(null, '', item.url);
+                      }
+                    }}
+                    className='px-0 py-2 mx-2 text-sm font-semibold transition-all duration-200 hover:text-accent-foreground'
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
 
@@ -171,19 +151,16 @@ export function Header() {
                         className='w-full cursor-pointer'
                         onClick={(e) => {
                           e.preventDefault();
-                          setNav(item.name);
-
-                          // If not on home page, navigate to home first
                           if (pathname !== '/') {
                             router.push(item.url);
                           } else {
-                            // Already on home page, just scroll
                             const id = item.url.split('#')[1];
                             const el = document.getElementById(id);
                             if (el) {
-                              const y = el.getBoundingClientRect().top + window.scrollY - 112;
+                              const y = el.getBoundingClientRect().top + window.scrollY - OFFSET;
                               window.scrollTo({ top: y, behavior: 'smooth' });
                             }
+                            window.history.pushState(null, '', item.url);
                           }
                         }}
                       >

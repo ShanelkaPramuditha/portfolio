@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import { MapPin, Calendar } from 'lucide-react';
 import { experiences } from '@/data/experience';
+import { LogoImage } from '@/components/home-page/shared/LogoImage';
 
 export function Experience() {
   return (
@@ -21,24 +21,14 @@ export function Experience() {
               </div>
 
               {/* Card */}
-              <div className={`flex min-w-0 flex-1 flex-col overflow-hidden rounded-xl border border-dashed border-border/80 bg-card ${isLast ? '' : 'mb-4'}`}>
+              <div
+                className={`flex min-w-0 flex-1 flex-col overflow-hidden rounded-xl border border-dashed border-border/80 bg-card ${isLast ? '' : 'mb-4'}`}
+              >
                 {/* Header */}
                 <div className='flex items-start gap-3 p-4 pb-3'>
                   {/* Logo */}
                   <div className='flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border/60 bg-background'>
-                    {exp.logo ? (
-                      <Image
-                        src={exp.logo}
-                        alt={exp.company}
-                        width={40}
-                        height={40}
-                        className='h-full w-full object-contain'
-                      />
-                    ) : (
-                      <span className='text-sm font-semibold text-muted-foreground'>
-                        {exp.company.charAt(0)}
-                      </span>
-                    )}
+                    <LogoImage src={exp.logo} alt={exp.company} />
                   </div>
 
                   {/* Role + company + type badge */}
