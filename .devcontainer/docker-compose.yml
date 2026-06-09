@@ -10,9 +10,6 @@ services:
       - .env
     volumes:
       - ../..:/workspaces:cached
-      - claude-code-config:/root/.claude
+      - ~/.claude:/root/.claude
     command: sleep infinity
     network_mode: host
-
-volumes:
-  claude-code-config:

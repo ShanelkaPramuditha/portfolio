@@ -4,9 +4,6 @@
   "service": "app",
   "workspaceFolder": "/workspaces/portfolio",
   "postCreateCommand": "pnpm install",
-  "mounts": [
-    "source=claude-code-config,target=/root/.claude,type=volume"
-  ],
   "forwardPorts": [
     3000
   ],
