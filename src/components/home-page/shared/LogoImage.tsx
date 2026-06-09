@@ -13,6 +13,7 @@ export function LogoImage({ src, alt }: { src?: string; alt: string }) {
         alt={alt}
         width={40}
         height={40}
+        loading='lazy'
         className='h-full w-full object-contain'
         onError={() => setErrored(true)}
       />

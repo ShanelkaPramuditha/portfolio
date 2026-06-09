@@ -9,17 +9,79 @@ import './styles/globals.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
-  subsets: ['latin']
+  subsets: ['latin'],
+  display: 'swap'
 });
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
-  subsets: ['latin']
+  subsets: ['latin'],
+  display: 'swap'
 });
 
+const baseUrl = 'https://shanelka.com';
+
 export const metadata: Metadata = {
-  title: 'Shanelka',
-  description: 'Portfolio of Shanelka'
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: 'Shanelka Pramuditha — Software Engineer',
+    template: '%s | Shanelka Pramuditha'
+  },
+  description:
+    'Software Engineering undergraduate at SLIIT, full-stack developer specializing in React, Next.js, NestJS, and TypeScript. Currently working as Associate Software Engineer at PurePitch.',
+  keywords: [
+    'Shanelka Pramuditha',
+    'Software Engineer',
+    'Full Stack Developer',
+    'React',
+    'Next.js',
+    'NestJS',
+    'TypeScript',
+    'Sri Lanka',
+    'SLIIT',
+    'Portfolio'
+  ],
+  authors: [{ name: 'Shanelka Pramuditha', url: baseUrl }],
+  creator: 'Shanelka Pramuditha',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: baseUrl,
+    siteName: 'Shanelka Pramuditha',
+    title: 'Shanelka Pramuditha — Software Engineer',
+    description:
+      'Software Engineering undergraduate at SLIIT, full-stack developer specializing in React, Next.js, NestJS, and TypeScript.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Shanelka Pramuditha — Software Engineer'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Shanelka Pramuditha — Software Engineer',
+    description:
+      'Software Engineering undergraduate at SLIIT, full-stack developer specializing in React, Next.js, NestJS, and TypeScript.',
+    images: ['/og-image.png'],
+    creator: '@ShanelkaPramuditha'
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1
+    }
+  },
+  alternates: {
+    canonical: baseUrl
+  }
 };
 
 export default function RootLayout({

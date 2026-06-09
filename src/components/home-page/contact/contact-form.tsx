@@ -56,7 +56,6 @@ const ContactForm: React.FC = () => {
       }, 1000);
     },
     onError: (error: Error) => {
-      console.error('Error sending email:', error);
       toast.error(error.message || 'Failed to send message. Please try again.');
 
       // Track failed form submission

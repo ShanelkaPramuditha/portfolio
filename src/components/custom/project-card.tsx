@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Github, Link as LinkIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { data } from '@/constants/data';
 
@@ -21,7 +22,12 @@ export function ProjectCard({
   url: string;
   githubUrl: string;
 }) {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  // Before mount, default to dark (matches defaultTheme) to avoid layout shift
+  const isDark = !mounted ? true : resolvedTheme === 'dark';
 
   const displayTitle = title
     .split('-')
@@ -29,7 +35,7 @@ export function ProjectCard({
     .join(' ');
 
   const blurDataURL = `data:image/svg+xml;base64,${btoa(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="${theme === 'dark' ? '#1e293b' : '#e2e8f0'}"/></svg>`
+    `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="${isDark ? '#1e293b' : '#e2e8f0'}"/></svg>`
   )}`;
 
   return (
@@ -41,7 +47,7 @@ export function ProjectCard({
           height={300}
           placeholder='blur'
           blurDataURL={blurDataURL}
-          src={`https://socialify.git.ci/${data.githubUsername}/${title}/png?font=KoHo&language=1&name=1&pattern=Circuit%20Board&theme=${theme === 'dark' ? 'Dark' : 'Light'}`}
+          src={`https://socialify.git.ci/${data.githubUsername}/${title}/png?font=KoHo&language=1&name=1&pattern=Circuit%20Board&theme=${isDark ? 'Dark' : 'Light'}`}
           alt={displayTitle}
           className='w-full rounded-lg border border-border/80 object-cover'
           onError={(e) => {
@@ -71,10 +77,20 @@ export function ProjectCard({
       {/* Footer */}
       <div className='flex items-center justify-between px-2 pb-1'>
         <div className='flex items-center gap-3'>
-          <a href={url} target='_blank' rel='noopener noreferrer'>
+          <a
+            href={url}
+            target='_blank'
+            rel='noopener noreferrer'
+            aria-label={`Visit ${displayTitle} website`}
+          >
             <LinkIcon className='h-4 w-4 text-muted-foreground transition-colors hover:text-foreground' />
           </a>
-          <a href={githubUrl} target='_blank' rel='noopener noreferrer'>
+          <a
+            href={githubUrl}
+            target='_blank'
+            rel='noopener noreferrer'
+            aria-label={`View ${displayTitle} on GitHub`}
+          >
             <Github className='h-4 w-4 text-muted-foreground transition-colors hover:text-foreground' />
           </a>
         </div>
