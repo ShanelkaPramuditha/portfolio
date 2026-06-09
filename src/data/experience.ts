@@ -51,14 +51,14 @@ export const experiences: ExperienceItem[] = [
   },
   {
     company: 'OREL IT',
-    role: 'Associate Intern Programmer',
+    role: 'Associate Image Processor',
     type: 'Full-time',
     location: 'Maharagama, Sri Lanka',
     startDate: 'Jan 2021',
     endDate: 'May 2021',
     logo: '/images/companies/orelit.jpg',
     bullets: [
-      'Contributed to project development in a collaborative team environment and gained practical experience in software development workflows.'
+      'Worked collaboratively in a team environment with a shared focus on the same tasks to maximize speed and efficiency.'
     ]
   }
 ];
