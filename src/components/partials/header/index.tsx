@@ -96,7 +96,7 @@ export function Header() {
         <div className='w-full py-2 px-6 flex items-center justify-between gap-4'>
           {/* Logo/Brand */}
           <Link
-            className={`text-xl sm:text-2xl font-bold cursor-pointer ${bestermindRegular.className} flex-shrink-0 hover:opacity-80 transition-opacity`}
+            className={`text-xl sm:text-2xl font-bold cursor-pointer leading-none translate-y-1.5 ${bestermindRegular.className} flex-shrink-0 hover:opacity-80 transition-opacity`}
             href='/'
           >
             {data.firstName}
