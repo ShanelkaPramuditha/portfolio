@@ -3,7 +3,7 @@
 import { ProjectCard, ProjectCardSkeleton } from '@/components/custom/project-card';
 import { useProjects } from '@/queries/github.queries';
 import { Project } from '@/types/project.types';
-import { IconLoader, IconStack } from '@tabler/icons-react';
+import { Loader2 } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 
 export default function Page() {
@@ -65,15 +65,10 @@ export default function Page() {
 
   return (
     <div>
-      <div className='mb-8 mt-4 flex flex-col items-center justify-center'>
-        <div className='flex items-center gap-3 mb-2'>
-          <IconStack className='h-8 w-8 text-blue-500' />
-          <span className='text-2xl font-bold text-slate-900 dark:text-slate-50'>
-            Featured Projects
-          </span>
-        </div>
-        <p className='text-slate-600 dark:text-slate-300 text-center max-w-xl'>
-          A selection of my latest work. Scroll down to explore more projects.
+      <div className='mb-8 mt-4'>
+        <p className='text-2xl font-light tracking-tight sm:text-3xl'>Projects</p>
+        <p className='mt-1 text-sm text-muted-foreground'>
+          All public repositories. Scroll down to load more.
         </p>
       </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'>
@@ -98,17 +93,21 @@ export default function Page() {
                   <ProjectCardSkeleton key={i} />
                 ))}
               </div>
-              <span className='inline-flex items-center gap-2 text-slate-400 text-sm'>
-                <IconLoader className='animate-spin h-5 w-5 text-slate-400' />
+              <span className='inline-flex items-center gap-2 text-muted-foreground text-sm'>
+                <Loader2 className='animate-spin h-4 w-4' />
                 Loading more projects...
               </span>
             </>
           ) : (
-            <span className='text-slate-400 text-sm'>Scroll to load more</span>
+            <span className='text-muted-foreground text-sm'>Scroll to load more</span>
           )}
         </div>
       )}
-      {!hasMore && <p className='py-4 text-center text-slate-400'>No more public projects to load.</p>}
+      {!hasMore && (
+        <p className='py-4 text-center text-muted-foreground text-sm'>
+          No more public projects to load.
+        </p>
+      )}
     </div>
   );
 }
