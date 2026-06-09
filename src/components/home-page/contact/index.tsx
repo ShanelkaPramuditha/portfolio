@@ -1,93 +1,83 @@
 import Link from 'next/link';
 import { directContactData } from '@/constants/contact';
-import { IconMail, IconPhone } from '@tabler/icons-react';
+import { Mail, Phone, CalendarDays } from 'lucide-react';
 import ContactForm from './contact-form';
 
 export function Contact() {
   return (
-    <>
-      <section id='contact' className='content-center'>
-        <div className='py-8 mx-auto lg:py-16 my-10'>
-          {/* Two Column Layout */}
-          <div className='grid lg:grid-cols-2 gap-12 items-start mx-auto'>
-            {/* Left Column - Contact Options */}
-            <div className='flex flex-col justify-center space-y-6'>
-              <div>
-                <h2 className='text-3xl font-bold text-gray-900 dark:text-white mb-4'>
-                  Get in Touch
-                </h2>
-                <p className='text-gray-600 dark:text-gray-400'>
-                  I am always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Choose your preferred way to reach out!
-                </p>
+    <section id='contact' className='w-full space-y-6'>
+      <p className='text-2xl font-light tracking-tight sm:text-3xl'>Contact</p>
+
+      <div className='grid gap-6 lg:grid-cols-2 lg:gap-10'>
+        {/* Left — intro + contact options */}
+        <div className='flex flex-col gap-6'>
+          <div className='flex flex-col gap-1'>
+            <p className='text-base font-medium'>Get in Touch</p>
+            <p className='text-sm text-muted-foreground'>
+              I&apos;m always open to discussing new projects, creative ideas, or opportunities.
+              Choose your preferred way to reach out.
+            </p>
+          </div>
+
+          <div className='flex flex-col gap-3'>
+            <Link
+              href={`mailto:${directContactData.email}`}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='flex items-center gap-3 rounded-xl border border-dashed border-border/80 bg-card px-4 py-3 transition-colors hover:border-border hover:bg-accent'
+            >
+              <div className='flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border/60 bg-background'>
+                <Mail className='h-4 w-4 text-muted-foreground' />
               </div>
-
-              <div className='space-y-4'>
-                <Link
-                  href={`mailto:${directContactData.email}`}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='flex items-center gap-4 p-4 text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors dark:text-white dark:border-gray-700 dark:hover:bg-gray-700'
-                >
-                  <IconMail className='h-6 w-6 flex-shrink-0' />
-                  <div className='flex flex-col'>
-                    <span className='font-medium'>Email Me</span>
-                    <span className='text-sm text-gray-500 dark:text-gray-400'>
-                      {directContactData.email}
-                    </span>
-                  </div>
-                </Link>
-
-                <Link
-                  href={directContactData.scheduleCall}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='flex items-center gap-4 p-4 text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors dark:text-white dark:border-gray-700 dark:hover:bg-gray-700'
-                >
-                  <IconPhone className='h-6 w-6 flex-shrink-0' />
-                  <div className='flex flex-col'>
-                    <span className='font-medium'>Schedule a Call</span>
-                    <span className='text-sm text-gray-500 dark:text-gray-400'>
-                      Book a meeting time
-                    </span>
-                  </div>
-                </Link>
-
-                <div className='text-center text-gray-500 dark:text-gray-400'>
-                  OR
-                </div>
-
-                <Link
-                  href={`tel:${directContactData.phone}`}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='flex items-center gap-4 p-4 text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors dark:text-white dark:border-gray-700 dark:hover:bg-gray-700'
-                >
-                  <IconPhone className='h-6 w-6 flex-shrink-0' />
-                  <div className='flex flex-col'>
-                    <span className='font-medium'>Call Now</span>
-                    <span className='text-sm text-gray-500 dark:text-gray-400'>
-                      {directContactData.phone}
-                    </span>
-                  </div>
-                </Link>
+              <div className='flex flex-col'>
+                <span className='text-sm font-medium'>Email Me</span>
+                <span className='text-xs text-muted-foreground'>{directContactData.email}</span>
               </div>
-            </div>
+            </Link>
 
-            {/* Right Column - Contact Form */}
-            <div className='lg:border-l lg:pl-12 lg:border-gray-200 lg:dark:border-gray-700'>
-              <div className='mb-6'>
-                <h2 className='text-3xl font-bold text-gray-900 dark:text-white mb-2'>
-                  Send a Message
-                </h2>
-                <p className='text-gray-600 dark:text-gray-400'>
-                  Fill out the form below and I&apos;ll get back to you as soon as possible
-                </p>
+            <Link
+              href={`tel:${directContactData.phone}`}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='flex items-center gap-3 rounded-xl border border-dashed border-border/80 bg-card px-4 py-3 transition-colors hover:border-border hover:bg-accent'
+            >
+              <div className='flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border/60 bg-background'>
+                <Phone className='h-4 w-4 text-muted-foreground' />
               </div>
-              <ContactForm />
-            </div>
+              <div className='flex flex-col'>
+                <span className='text-sm font-medium'>Call Me</span>
+                <span className='text-xs text-muted-foreground'>{directContactData.phone}</span>
+              </div>
+            </Link>
+
+            <Link
+              href={directContactData.scheduleCall}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='flex items-center gap-3 rounded-xl border border-dashed border-border/80 bg-card px-4 py-3 transition-colors hover:border-border hover:bg-accent'
+            >
+              <div className='flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border/60 bg-background'>
+                <CalendarDays className='h-4 w-4 text-muted-foreground' />
+              </div>
+              <div className='flex flex-col'>
+                <span className='text-sm font-medium'>Schedule a Call</span>
+                <span className='text-xs text-muted-foreground'>Book a meeting time</span>
+              </div>
+            </Link>
           </div>
         </div>
-      </section>
-    </>
+
+        {/* Right — contact form */}
+        <div className='rounded-xl border border-dashed border-border/80 bg-card p-5'>
+          <div className='mb-5 flex flex-col gap-1'>
+            <p className='text-base font-medium'>Send a Message</p>
+            <p className='text-sm text-muted-foreground'>
+              Fill out the form and I&apos;ll get back to you as soon as possible.
+            </p>
+          </div>
+          <ContactForm />
+        </div>
+      </div>
+    </section>
   );
 }

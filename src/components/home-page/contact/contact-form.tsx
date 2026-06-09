@@ -14,7 +14,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
+  FormMessage
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -31,8 +31,8 @@ const ContactForm: React.FC = () => {
       fullName: '',
       email: '',
       mobile: '',
-      message: '',
-    },
+      message: ''
+    }
   });
 
   // Use the contact query hook
@@ -61,7 +61,7 @@ const ContactForm: React.FC = () => {
 
       // Track failed form submission
       analytics.contactFormSubmit(false);
-    },
+    }
   });
 
   const onSubmit = (values: ContactFormValues) => {
@@ -80,15 +80,10 @@ const ContactForm: React.FC = () => {
             name='fullName'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
-                  Full Name
-                </FormLabel>
+                <FormLabel>Full Name</FormLabel>
                 <FormControl>
                   <div className='relative'>
-                    <IconUser
-                      size={20}
-                      className='absolute left-3 top-1/2 -translate-y-1/2'
-                    />
+                    <IconUser size={20} className='absolute left-3 top-1/2 -translate-y-1/2' />
                     <Input
                       placeholder='John Doe'
                       disabled={isSubmitted || mutation.isPending}
@@ -111,10 +106,7 @@ const ContactForm: React.FC = () => {
                 <FormLabel>Email</FormLabel>
                 <FormControl>
                   <div className='relative'>
-                    <IconMail
-                      size={20}
-                      className='absolute left-3 top-1/2 -translate-y-1/2'
-                    />
+                    <IconMail size={20} className='absolute left-3 top-1/2 -translate-y-1/2' />
                     <Input
                       type='email'
                       placeholder='john@example.com'
@@ -136,7 +128,7 @@ const ContactForm: React.FC = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
-                  Contact Number <span className='text-slate-500'>(Optional)</span>
+                  Contact Number <span className='text-muted-foreground'>(Optional)</span>
                 </FormLabel>
                 <FormControl>
                   <div className='relative'>
