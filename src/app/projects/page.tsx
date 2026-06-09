@@ -53,8 +53,8 @@ export default function Page() {
 
   if (isPending && page === 1) {
     return (
-      <div>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'>
+      <div className='mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-4'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
           {Array.from({ length: limit }).map((_, i) => (
             <ProjectCardSkeleton key={i} />
           ))}
@@ -64,14 +64,14 @@ export default function Page() {
   }
 
   return (
-    <div>
+    <div className='mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-4'>
       <div className='mb-8 mt-4'>
         <p className='text-2xl font-light tracking-tight sm:text-3xl'>Projects</p>
         <p className='mt-1 text-sm text-muted-foreground'>
           All public repositories. Scroll down to load more.
         </p>
       </div>
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
         {projects.map((project) => (
           <ProjectCard
             key={project.id}
@@ -88,7 +88,7 @@ export default function Page() {
         <div ref={loaderRef} className='py-4 flex flex-col items-center justify-center'>
           {isFetching ? (
             <>
-              <div className='w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-2'>
+              <div className='w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-2'>
                 {Array.from({ length: 4 }).map((_, i) => (
                   <ProjectCardSkeleton key={i} />
                 ))}

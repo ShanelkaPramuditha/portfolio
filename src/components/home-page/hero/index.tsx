@@ -16,113 +16,87 @@ import Link from 'next/link';
 
 export function Hero() {
   return (
-    <>
-      <section id='home' className='content-center min-h-[calc(100vh-110px)]'>
-        <div>
-          <div className='grid py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12'>
-            {/* Desktop View */}
-            <div className='hidden lg:flex justify-center items-center lg:col-span-5 lg:mt-0'>
-              <motion.div
-                className='rounded-full shadow-lg border-2 border-dark'
-                initial={{ boxShadow: '0 0 10px rgba(59, 130, 246, 0.5)' }} // Initial glow
-                animate={{ boxShadow: '0 0 20px rgba(59, 130, 246, 0.8)' }} // Stronger glow
-                transition={{
-                  duration: 1.5, // Animation duration
-                  repeat: Infinity, // Loop infinitely
-                  repeatType: 'reverse', // Reverse the animation
-                  ease: 'easeInOut' // Smooth easing
+    <section id='home' className='flex items-center min-h-[calc(100vh-126px)]'>
+      <div className='w-full py-16'>
+        {/* Two-column layout: image left, text right */}
+        <div className='flex flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-16'>
+          {/* Profile image */}
+          <div className='shrink-0'>
+            <motion.div
+              className='rounded-full'
+              initial={{ boxShadow: '0 0 10px rgba(59, 130, 246, 0.4)' }}
+              animate={{ boxShadow: '0 0 28px rgba(59, 130, 246, 0.75)' }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: 'reverse',
+                ease: 'easeInOut'
+              }}
+            >
+              <Image
+                src={data.profileImg}
+                alt='Avatar'
+                width={280}
+                height={280}
+                priority
+                className='rounded-full object-cover object-center'
+              />
+            </motion.div>
+          </div>
+
+          {/* Text content */}
+          <div className='flex flex-col items-center gap-5 text-center lg:items-start lg:text-left'>
+            <h1 className='text-4xl font-extrabold tracking-tight leading-tight md:text-5xl xl:text-6xl'>
+              {data.firstName} {data.lastName}
+            </h1>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.5 }}
+              className='max-w-xl font-light text-muted-foreground md:text-lg'
+            >
+              {data.description}
+            </motion.p>
+
+            <div className='flex flex-wrap gap-3'>
+              <Button
+                onClick={() => {
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                 }}
+                variant='default'
               >
-                <Image
-                  className='object-cover object-center rounded-full'
-                  src={data.profileImg}
-                  alt='Avatar'
-                  width={350}
-                  height={350}
-                  priority
-                />
-              </motion.div>
+                Get in Touch
+              </Button>
+              <Button
+                onClick={() => window.open(data.cvLink, '_blank', 'noopener,noreferrer')}
+                variant='outline'
+              >
+                Check Resume
+              </Button>
             </div>
 
-            {/* Mobile View */}
-            <div className='flex justify-center lg:hidden mb-20'>
-              <motion.div
-                className='rounded-full shadow-lg border-2 border-dark'
-                initial={{ boxShadow: '0 0 10px rgba(59, 130, 246, 0.5)' }} // Initial glow
-                animate={{ boxShadow: '0 0 20px rgba(59, 130, 246, 0.8)' }} // Stronger glow
-                transition={{
-                  duration: 1.5, // Animation duration
-                  repeat: Infinity, // Loop infinitely
-                  repeatType: 'reverse', // Reverse the animation
-                  ease: 'easeInOut' // Smooth easing
-                }}
-              >
-                <Image
-                  className='object-cover object-center rounded-full'
-                  src={data.profileImg}
-                  alt='Avatar'
-                  width={250}
-                  height={250}
-                  priority
-                />
-              </motion.div>
-            </div>
-            <div className='mx-auto place-self-center lg:col-span-7 flex flex-col justify-center items-center'>
-              <h1 className='max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white text-center'>
-                {data.firstName} {data.lastName}
-              </h1>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0, duration: 2 }}
-              >
-                <p className='max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400 text-center'>
-                  {data.description}
-                </p>
-              </motion.div>
-              <div className='grid md:grid-cols-2 gap-5'>
-                <Button
-                  onClick={() => {
-                    const element = document.getElementById('contact');
-                    element?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  variant='default'
-                >
-                  Get in Touch
-                </Button>
-                <Button
-                  onClick={() => {
-                    window.open(data.cvLink, '_blank', 'noopener,noreferrer');
-                  }}
-                  variant='outline'
-                >
-                  Check Resume
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div className='flex justify-center my-8'>
-            <ul className='flex flex-wrap items-center text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0 gap-5 justify-center'>
+            <ul className='flex items-center gap-1'>
               {socialMedia.map((social, index) => (
                 <li key={index}>
                   <Link
                     href={social.url}
-                    className='flex items-center justify-center w-8 h-8 mx-1 text-gray-500 transition-colors rounded-full dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 '
+                    className='flex items-center justify-center h-8 w-8 text-muted-foreground transition-colors hover:text-foreground'
                     target='_blank'
                     rel='noopener noreferrer'
                   >
-                    {social.icon === 'FaGithub' && <IconBrandGithub size={40} />}
-                    {social.icon === 'FaLinkedin' && <IconBrandLinkedin size={40} />}
-                    {social.icon === 'FaFacebook' && <IconBrandFacebook size={40} />}
-                    {social.icon === 'FaWhatsapp' && <IconBrandWhatsapp size={40} />}
-                    {social.icon === 'FaTelegram' && <IconBrandTelegram size={40} />}
+                    {social.icon === 'FaGithub' && <IconBrandGithub size={20} />}
+                    {social.icon === 'FaLinkedin' && <IconBrandLinkedin size={20} />}
+                    {social.icon === 'FaFacebook' && <IconBrandFacebook size={20} />}
+                    {social.icon === 'FaWhatsapp' && <IconBrandWhatsapp size={20} />}
+                    {social.icon === 'FaTelegram' && <IconBrandTelegram size={20} />}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

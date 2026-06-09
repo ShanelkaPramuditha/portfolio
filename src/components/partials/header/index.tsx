@@ -74,7 +74,7 @@ export function Header() {
     <div className='sticky top-0 z-50 w-full py-2'>
       <motion.div
         className={cn(
-          'bg-background/30 rounded-lg mx-auto max-w-7xl shadow-sm saturate-100 backdrop-blur-[10px] transition-all duration-300 border border-border/40',
+          'bg-background/30 mx-auto max-w-4xl rounded-lg shadow-sm saturate-100 backdrop-blur-[10px] transition-all duration-300 border border-border/40',
           isScrolled && 'bg-background/80 shadow-md'
         )}
         initial={{

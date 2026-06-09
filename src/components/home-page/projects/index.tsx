@@ -5,7 +5,7 @@ import { useProjects } from '@/queries/github.queries';
 import Link from 'next/link';
 
 export function Projects() {
-  const { data: projects, isPending } = useProjects(8, 1);
+  const { data: projects, isPending } = useProjects(6, 1);
 
   return (
     <section id='projects' className='w-full space-y-6'>
@@ -19,9 +19,9 @@ export function Projects() {
         </Link>
       </div>
 
-      <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4'>
+      <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
         {(isPending || !projects) &&
-          Array.from({ length: 4 }).map((_, i) => <ProjectCardSkeleton key={i} />)}
+          Array.from({ length: 6 }).map((_, i) => <ProjectCardSkeleton key={i} />)}
 
         {projects &&
           projects.length > 0 &&
