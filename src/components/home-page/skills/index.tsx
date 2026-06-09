@@ -1,134 +1,65 @@
 'use client';
 
-import { motion } from 'motion/react';
-import {
-  Code,
-  Braces,
-  Database,
-  Cloud,
-} from 'lucide-react';
-
-const SKILLS_CATEGORIES = [
-  {
-    category: 'Languages',
-    icon: Code,
-    skills: [
-      'TypeScript',
-      'JavaScript',
-      'Python',
-      'HTML',
-      'CSS',
-      'C#',
-    ],
-  },
-  {
-    category: 'Frameworks & Libraries',
-    icon: Braces,
-    skills: [
-      'React.js',
-      'Next.js',
-      'Node.js',
-      'Express.js',
-      'NestJS',
-      'Tailwind CSS',
-      'Shadcn/ui',
-      'Framer Motion',
-      'Prisma',
-      'Drizzle ORM',
-    ],
-  },
-  {
-    category: 'Databases & Tools',
-    icon: Database,
-    skills: [
-      'PostgreSQL',
-      'MongoDB',
-      'MySQL',
-      'Redis',
-      'Git',
-      'Docker',
-      'ESLint',
-      'Prettier',
-      'Jira',
-      'Figma',
-    ],
-  },
-  {
-    category: 'Cloud & DevOps',
-    icon: Cloud,
-    skills: [
-      'AWS',
-      'Vercel',
-      'Netlify',
-      'Heroku',
-      'Kubernetes',
-      'CI/CD',
-    ],
-  },
-];
-
-// Animation variants for the skill tags
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1, // Stagger animation for each skill tag
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-};
+import { useState } from 'react';
+import SkillRow from './helpers/SkillRow';
+import TechIcon from './helpers/TechIcon';
+import { skillRows } from '@/data/tech';
+import { LayoutGrid, List } from 'lucide-react';
 
 export function Skills() {
+  const [isInline, setIsInline] = useState(false);
 
   return (
-    <section id='skills' className='flex w-full flex-col items-center py-16 sm:py-24'>
-      <div className='container'>
-        <div className='max-w-3xl mx-auto w-full text-center mb-10'>
-          <h2 className='text-3xl font-bold text-slate-900 dark:text-slate-50 mb-2'>
-            My Skills & Expertise
-          </h2>
-          <p className='text-slate-600 dark:text-slate-300'>
-            Technologies and tools I work with to bring ideas to life.
-          </p>
-        </div>
+    <section id='skills' className='w-full space-y-6'>
+      <div className='flex items-center justify-between'>
+        <p className='text-2xl font-light tracking-tight sm:text-3xl'>Skills</p>
+        <button
+          onClick={() => setIsInline(!isInline)}
+          className='flex h-8 w-8 items-center justify-center rounded-md border border-dashed border-border/70 bg-card text-muted-foreground transition-colors hover:bg-accent hover:text-foreground'
+          title={isInline ? 'Show animated rows' : 'Show inline'}
+          aria-label='Toggle inline view'
+        >
+          {isInline ? <List size={16} /> : <LayoutGrid size={16} />}
+        </button>
+      </div>
 
-        <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2'>
-          {SKILLS_CATEGORIES.map((category, index) => (
-            <motion.div
-              key={category.category + index}
-              className='rounded-lg border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900'
-              initial='hidden'
-              whileInView='visible'
-              viewport={{ once: true, amount: 0.3 }} // Animate once when in view
-              variants={containerVariants}
+      {isInline ? (
+        <div className='flex flex-col gap-3'>
+          {skillRows.map((row) => (
+            <div
+              key={row.category}
+              className='flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-4'
             >
-              <h3 className='mb-4 flex items-center text-xl font-semibold text-slate-800 dark:text-slate-100'>
-                <category.icon className='mr-3 h-6 w-6 text-sky-500' />
-                {category.category}
-              </h3>
-              <div className='flex flex-wrap gap-2'>
-                {category.skills.map((skill) => (
-                  <motion.span
-                    key={skill}
-                    className='inline-block rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-sky-800 shadow-sm dark:bg-slate-800 dark:text-sky-300'
-                    variants={itemVariants}
+              <span className='text-xs font-medium text-muted-foreground sm:w-28 sm:shrink-0 sm:text-right'>
+                {row.category}
+              </span>
+              <div className='flex flex-wrap gap-2 sm:gap-3'>
+                {row.items.map((skill) => (
+                  <span
+                    key={skill.name}
+                    className='inline-flex items-center gap-1.5 whitespace-nowrap rounded-md border border-dashed bg-card px-2.5 py-1.5 text-sm text-foreground transition-colors hover:bg-accent'
                   >
-                    {skill}
-                  </motion.span>
+                    <TechIcon item={skill} className='h-4 w-4 shrink-0' />
+                    {skill.name}
+                  </span>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </div>
+      ) : (
+        <div className='relative flex flex-col gap-3'>
+          <div className='pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-linear-to-l from-background to-transparent' />
+          {skillRows.map((row) => (
+            <SkillRow
+              key={row.category}
+              category={row.category}
+              skills={row.items}
+              direction={row.direction}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

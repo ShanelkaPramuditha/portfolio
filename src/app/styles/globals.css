@@ -1,6 +1,32 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% / var(--marquee-copies, 4)));
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(calc(-100% / var(--marquee-copies, 4)));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@utility animate-marquee-left {
+  animation: marquee-left 30s linear infinite;
+}
+
+@utility animate-marquee-right {
+  animation: marquee-right 30s linear infinite;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @layer base {
