@@ -5,6 +5,8 @@ import { QueryProvider } from '@/components/providers/query-provider';
 import { GoogleAnalytics } from '@/components/analytics/google-analytics';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './styles/globals.css';
 
 const geistSans = Geist({
@@ -148,6 +150,8 @@ export default function RootLayout({
               </main>
               <Footer />
             </div>
+            <Analytics />
+            <SpeedInsights />
           </ThemeProvider>
         </QueryProvider>
       </body>
