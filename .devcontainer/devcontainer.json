@@ -3,9 +3,10 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspaces/portfolio",
-  "onCreateCommand": "git config --global user.email \"${GIT_USER_EMAIL}\" && git config --global user.name \"${GIT_USER_NAME}\"",
   "postCreateCommand": "pnpm install",
-  "postStartCommand": "pnpm dev",
+  "mounts": [
+    "source=claude-code-config,target=/root/.claude,type=volume"
+  ],
   "forwardPorts": [
     3000
   ],
@@ -14,10 +15,6 @@
       "label": "Next.js Dev Server",
       "onAutoForward": "notify"
     }
-  },
-  "remoteEnv": {
-    "GIT_USER_EMAIL": "${localEnv:GIT_USER_EMAIL}",
-    "GIT_USER_NAME": "${localEnv:GIT_USER_NAME}"
   },
   "customizations": {
     "vscode": {

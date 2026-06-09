@@ -2,5 +2,17 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "always"
-  }
+  },
+  "cSpell.words": [
+    "bradlc",
+    "dbaeumer",
+    "eamodio",
+    "errorlens",
+    "esbenp",
+    "formulahendry",
+    "kohler",
+    "mhutchie",
+    "naumovs",
+    "usernamehw"
+  ]
 }
