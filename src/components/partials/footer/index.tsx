@@ -27,6 +27,7 @@ export function Footer() {
                 className='flex items-center justify-center h-8 w-8 text-muted-foreground transition-colors hover:text-foreground'
                 target='_blank'
                 rel='noopener noreferrer'
+                aria-label={`${social.name} profile`}
               >
                 {social.icon === 'FaGithub' && <IconBrandGithub size={18} />}
                 {social.icon === 'FaLinkedin' && <IconBrandLinkedin size={18} />}

@@ -84,6 +84,46 @@ export const metadata: Metadata = {
   }
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${baseUrl}/#person`,
+      name: 'Shanelka Pramuditha',
+      url: baseUrl,
+      image: `${baseUrl}/images/profile.jpg`,
+      sameAs: [
+        'https://github.com/ShanelkaPramuditha',
+        'https://www.linkedin.com/in/shanelkapramuditha',
+        'https://www.facebook.com/ShanelkaPramuditha'
+      ],
+      jobTitle: 'Associate Software Engineer',
+      worksFor: {
+        '@type': 'Organization',
+        name: 'PurePitch',
+        url: 'https://purepitch.com'
+      },
+      alumniOf: {
+        '@type': 'CollegeOrUniversity',
+        name: 'Sri Lanka Institute of Information Technology',
+        alternateName: 'SLIIT'
+      },
+      knowsAbout: ['React', 'Next.js', 'NestJS', 'TypeScript', 'Node.js', 'Python', 'AWS'],
+      email: 'contact@shanelka.com'
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${baseUrl}/#website`,
+      url: baseUrl,
+      name: 'Shanelka Pramuditha',
+      description:
+        'Personal portfolio of Shanelka Pramuditha — full-stack software engineer specializing in React, Next.js, NestJS, and TypeScript.',
+      author: { '@id': `${baseUrl}/#person` }
+    }
+  ]
+};
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -93,6 +133,10 @@ export default function RootLayout({
     <html lang='en' suppressHydrationWarning>
       <head>
         <GoogleAnalytics />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <QueryProvider>

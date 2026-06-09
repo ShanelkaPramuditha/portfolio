@@ -10,7 +10,7 @@ export function Projects() {
   return (
     <section id='projects' className='w-full space-y-6'>
       <div className='flex items-center justify-between'>
-        <p className='text-2xl font-light tracking-tight sm:text-3xl'>Projects</p>
+        <h2 className='text-2xl font-light tracking-tight sm:text-3xl'>Projects</h2>
         <Link
           href='/projects'
           className='font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground'

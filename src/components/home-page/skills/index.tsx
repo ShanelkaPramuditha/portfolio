@@ -12,7 +12,7 @@ export function Skills() {
   return (
     <section id='skills' className='w-full space-y-6'>
       <div className='flex items-center justify-between'>
-        <p className='text-2xl font-light tracking-tight sm:text-3xl'>Skills</p>
+        <h2 className='text-2xl font-light tracking-tight sm:text-3xl'>Skills</h2>
         <button
           onClick={() => setIsInline(!isInline)}
           className='flex h-8 w-8 items-center justify-center rounded-md border border-dashed border-border/70 bg-card text-muted-foreground transition-colors hover:bg-accent hover:text-foreground'

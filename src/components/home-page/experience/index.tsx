@@ -5,7 +5,7 @@ import { LogoImage } from '@/components/home-page/shared/LogoImage';
 export function Experience() {
   return (
     <section id='experience' className='w-full space-y-6'>
-      <p className='text-2xl font-light tracking-tight sm:text-3xl'>Experience</p>
+      <h2 className='text-2xl font-light tracking-tight sm:text-3xl'>Experience</h2>
 
       <div className='flex flex-col'>
         {experiences.map((exp, index) => {
