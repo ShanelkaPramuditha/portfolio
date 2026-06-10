@@ -29,6 +29,22 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Theme switch: the toggle animates a circular clip-path on the new snapshot,
+   so the default view-transition cross-fade must not run */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+}
+
 @layer base {
   button:not([disabled]),
   [role='button']:not([disabled]) {
@@ -191,5 +207,38 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Paper-like page background: a soft primary glow at the top with a faint
+     dot grain, both derived from theme tokens so light/dark stay in sync */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        1200px 500px at 50% -120px,
+        color-mix(in oklab, var(--primary) 9%, transparent),
+        transparent 70%
+      ),
+      radial-gradient(color-mix(in oklab, var(--foreground) 16%, transparent) 0px, transparent 1px);
+    background-size:
+      auto,
+      24px 24px;
+  }
+
+  .dark body::before {
+    background:
+      radial-gradient(
+        1200px 500px at 50% -120px,
+        color-mix(in oklab, var(--primary) 13%, transparent),
+        transparent 70%
+      ),
+      radial-gradient(color-mix(in oklab, var(--foreground) 11%, transparent) 0px, transparent 1px);
+    background-size:
+      auto,
+      24px 24px;
   }
 }
