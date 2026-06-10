@@ -17,7 +17,7 @@ export function Experience() {
               <div className='flex flex-col items-center'>
                 {/* Dot */}
                 <div className='mt-3.5 h-3 w-3 shrink-0 rounded-full border-2 border-primary bg-background' />
-                {/* Line segment — hidden for last item */}
+                {/* Line segment - hidden for last item */}
                 {!isLast && <div className='mt-1 w-px flex-1 bg-border' />}
               </div>
 

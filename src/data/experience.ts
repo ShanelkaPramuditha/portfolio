@@ -12,7 +12,7 @@ export type ExperienceItem = {
 
 export const experiences: ExperienceItem[] = [
   {
-    company: 'Purepitch',
+    company: 'PurePitch',
     role: 'Associate Software Engineer',
     type: 'Full-time',
     location: 'Remote, Netherlands',
@@ -26,7 +26,7 @@ export const experiences: ExperienceItem[] = [
     ]
   },
   {
-    company: 'Purepitch',
+    company: 'PurePitch',
     role: 'Intern Software Engineer',
     type: 'Full-time',
     location: 'Remote, Netherlands',
@@ -35,6 +35,19 @@ export const experiences: ExperienceItem[] = [
     logo: '/images/companies/purepitch.jpg',
     bullets: [
       'Contributed to front-end and back-end development while gaining hands-on experience with modern web technologies.'
+    ]
+  },
+  {
+    company: 'myLister.io',
+    role: 'Software Engineer',
+    type: 'Product Team',
+    location: 'Remote, Netherlands',
+    startDate: 'Nov 2024',
+    endDate: 'Present',
+    logo: '/images/companies/mylister.jpg',
+    bullets: [
+      'Contributed to the development of a SaaS product for managing and sharing lists, utilizing React, Next.js, and Node.js.',
+      'Implemented new features, fixed bugs, and optimized performance to enhance user experience and drive product growth.'
     ]
   },
   {

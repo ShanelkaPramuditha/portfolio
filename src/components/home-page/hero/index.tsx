@@ -20,7 +20,7 @@ export function Hero() {
     <section id='home' className='flex min-h-[calc(100svh-124px)] items-center'>
       <div className='w-full py-10 sm:py-16'>
         <div className='flex flex-col items-center gap-8 sm:gap-12 lg:flex-row lg:items-center lg:gap-16'>
-          {/* Profile image — CSS animation, no JS dependency */}
+          {/* Profile image - CSS animation, no JS dependency */}
           <div className='shrink-0 animate-in duration-500 zoom-in-95 fade-in'>
             <motion.div
               className='rounded-full'
@@ -45,7 +45,7 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Text content — CSS animations with staggered delays */}
+          {/* Text content - CSS animations with staggered delays */}
           <div className='flex flex-col items-center gap-5 text-center lg:items-start lg:text-left'>
             <h1 className='animate-in text-3xl leading-tight font-extrabold tracking-tight delay-75 duration-500 fill-mode-both fade-in slide-in-from-bottom-2 sm:text-4xl md:text-5xl xl:text-6xl'>
               {data.firstName} {data.lastName}

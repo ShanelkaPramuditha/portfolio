@@ -198,7 +198,7 @@ export function Header() {
         <div className='flex flex-shrink-0 items-center gap-1.5'>
           <ThemeToggle />
 
-          {/* Mobile Navigation — slide-in sheet with full-size touch targets */}
+          {/* Mobile Navigation - slide-in sheet with full-size touch targets */}
           <div className='md:hidden'>
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
               <SheetTrigger asChild>

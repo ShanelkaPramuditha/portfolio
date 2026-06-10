@@ -41,7 +41,7 @@ export function Contact() {
       </div>
 
       <div className='grid gap-6 lg:grid-cols-[1fr_1.4fr] lg:gap-8'>
-        {/* Left — intro + contact links */}
+        {/* Left - intro + contact links */}
         <div className='flex flex-col gap-4'>
           <p className='text-sm text-muted-foreground'>
             I&apos;m always open to discussing new projects, creative ideas, or opportunities.
@@ -69,7 +69,7 @@ export function Contact() {
           </div>
         </div>
 
-        {/* Right — contact form */}
+        {/* Right - contact form */}
         <div className='rounded-xl border border-dashed border-border/80 bg-card p-5'>
           <div className='mb-4 flex flex-col gap-0.5'>
             <p className='text-sm font-medium'>Send a Message</p>

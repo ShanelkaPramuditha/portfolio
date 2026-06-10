@@ -109,7 +109,7 @@ export function ProjectCard({
 export function ProjectCardSkeleton() {
   return (
     <div className='flex w-full flex-col gap-2 overflow-hidden rounded-xl border border-dashed border-border/80 bg-card p-2'>
-      {/* Image placeholder — same aspect ratio as the card image (600×300 = 2:1) */}
+      {/* Image placeholder - same aspect ratio as the card image (600×300 = 2:1) */}
       <Skeleton className='aspect-[2/1] w-full rounded-lg' />
       <div className='mt-2 space-y-2 px-2'>
         <Skeleton className='h-5 w-3/4' />

@@ -29,7 +29,7 @@ const baseUrl = 'https://shanelka.com';
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Shanelka Pramuditha — Software Engineer',
+    default: 'Shanelka Pramuditha - Software Engineer',
     template: '%s | Shanelka Pramuditha'
   },
   description:
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: baseUrl,
     siteName: 'Shanelka Pramuditha',
-    title: 'Shanelka Pramuditha — Software Engineer',
+    title: 'Shanelka Pramuditha - Software Engineer',
     description:
       'Software Engineering undergraduate at SLIIT, full-stack developer specializing in React, Next.js, NestJS, and TypeScript.',
     images: [
@@ -61,13 +61,13 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Shanelka Pramuditha — Software Engineer'
+        alt: 'Shanelka Pramuditha - Software Engineer'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shanelka Pramuditha — Software Engineer',
+    title: 'Shanelka Pramuditha - Software Engineer',
     description:
       'Software Engineering undergraduate at SLIIT, full-stack developer specializing in React, Next.js, NestJS, and TypeScript.',
     images: ['/og-image.png'],
@@ -104,11 +104,18 @@ const jsonLd = {
         'https://www.facebook.com/ShanelkaPramuditha'
       ],
       jobTitle: 'Associate Software Engineer',
-      worksFor: {
-        '@type': 'Organization',
-        name: 'PurePitch',
-        url: 'https://purepitch.com'
-      },
+      worksFor: [
+        {
+          '@type': 'Organization',
+          name: 'PurePitch',
+          url: 'https://purepitch.nl'
+        },
+        {
+          '@type': 'Organization',
+          name: 'myLister.io',
+          url: 'https://mylister.io'
+        }
+      ],
       alumniOf: {
         '@type': 'CollegeOrUniversity',
         name: 'Sri Lanka Institute of Information Technology',
@@ -123,7 +130,7 @@ const jsonLd = {
       url: baseUrl,
       name: 'Shanelka Pramuditha',
       description:
-        'Personal portfolio of Shanelka Pramuditha — full-stack software engineer specializing in React, Next.js, NestJS, and TypeScript.',
+        'Personal portfolio of Shanelka Pramuditha - full-stack software engineer specializing in React, Next.js, NestJS, and TypeScript.',
       author: { '@id': `${baseUrl}/#person` }
     }
   ]
