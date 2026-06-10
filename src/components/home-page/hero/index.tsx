@@ -17,7 +17,7 @@ import { data } from '@/constants/data';
 
 export function Hero() {
   return (
-    <section id='home' className='flex min-h-[calc(100svh-126px)] items-center'>
+    <section id='home' className='flex min-h-[calc(100svh-124px)] items-center'>
       <div className='w-full py-10 sm:py-16'>
         <div className='flex flex-col items-center gap-8 sm:gap-12 lg:flex-row lg:items-center lg:gap-16'>
           {/* Profile image — CSS animation, no JS dependency */}
