@@ -1,5 +1,11 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import { Menu } from 'lucide-react';
+import { motion } from 'motion/react';
+
 import { ThemeToggle } from '@/components/partials/theme-toggle';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
@@ -7,11 +13,6 @@ import { data } from '@/constants/data';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { bestermindRegular } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
-import { Menu } from 'lucide-react';
-import { motion } from 'motion/react';
-import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 const OFFSET = 86;
 
@@ -90,7 +91,7 @@ export function Header() {
     <div className='sticky top-0 z-50 w-full py-2'>
       <motion.div
         className={cn(
-          'bg-background/30 mx-auto max-w-4xl rounded-lg shadow-sm saturate-100 backdrop-blur-[10px] transition-all duration-300 border border-border/40',
+          'mx-auto max-w-4xl rounded-lg border border-border/40 bg-background/30 shadow-sm saturate-100 backdrop-blur-[10px] transition-all duration-300',
           isScrolled && 'bg-background/80 shadow-md'
         )}
         initial={{
@@ -109,24 +110,24 @@ export function Header() {
           delay: 0
         }}
       >
-        <div className='w-full py-2 px-6 flex items-center justify-between gap-4'>
+        <div className='flex w-full items-center justify-between gap-4 px-6 py-2'>
           {/* Logo/Brand */}
           <Link
-            className={`text-xl sm:text-2xl font-bold cursor-pointer leading-none translate-y-1.5 ${bestermindRegular.className} flex-shrink-0 hover:opacity-80 transition-opacity`}
+            className={`translate-y-1.5 cursor-pointer text-xl leading-none font-bold sm:text-2xl ${bestermindRegular.className} flex-shrink-0 transition-opacity hover:opacity-80`}
             href='/'
           >
             {data.firstName}
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className='hidden md:flex items-center flex-1 justify-center'>
+          <nav className='hidden flex-1 items-center justify-center md:flex'>
             <ul className='flex items-center space-x-1'>
               {navItems.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.url}
                     onClick={(e) => handleNavClick(e, item.url)}
-                    className='px-0 py-2 mx-2 text-sm font-semibold transition-all duration-200 hover:text-accent-foreground'
+                    className='mx-2 px-0 py-2 text-sm font-semibold transition-all duration-200 hover:text-accent-foreground'
                   >
                     {item.name}
                   </Link>
@@ -136,7 +137,7 @@ export function Header() {
           </nav>
 
           {/* Right side controls */}
-          <div className='flex items-center gap-2 flex-shrink-0'>
+          <div className='flex flex-shrink-0 items-center gap-2'>
             {/* Mobile Navigation — slide-in sheet with full-size touch targets */}
             <div className='md:hidden'>
               <Sheet open={menuOpen} onOpenChange={setMenuOpen}>

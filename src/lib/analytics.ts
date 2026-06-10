@@ -24,7 +24,7 @@ export const trackEvent = ({ action, category, label, value }: GAEvent) => {
     window.gtag('event', action, {
       event_category: category,
       event_label: label,
-      value: value
+      value
     });
   }
 };

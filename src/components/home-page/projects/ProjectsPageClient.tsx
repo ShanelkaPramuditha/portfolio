@@ -1,9 +1,10 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
+
 import { ProjectCard, ProjectCardSkeleton } from '@/components/custom/project-card';
 import { useProjects } from '@/queries/github.queries';
-import { Project } from '@/types/project.types';
-import { useState, useRef, useEffect } from 'react';
+import { type Project } from '@/types/project.types';
 
 export function ProjectsPageClient() {
   const [limit] = useState(8);
@@ -49,7 +50,7 @@ export function ProjectsPageClient() {
     <div className='space-y-6'>
       <h1 className='text-2xl font-light tracking-tight sm:text-3xl'>Projects</h1>
 
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+      <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
         {projects.map((project) => (
           <ProjectCard
             key={project.id}
@@ -70,7 +71,7 @@ export function ProjectsPageClient() {
       {hasMore && <div ref={loaderRef} className='h-4' />}
 
       {!hasMore && projects.length > 0 && (
-        <p className='py-2 text-center text-muted-foreground text-sm'>All projects loaded.</p>
+        <p className='py-2 text-center text-sm text-muted-foreground'>All projects loaded.</p>
       )}
     </div>
   );

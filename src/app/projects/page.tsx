@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+
 import { ProjectsPageClient } from '@/components/home-page/projects/ProjectsPageClient';
 
 export const metadata: Metadata = {

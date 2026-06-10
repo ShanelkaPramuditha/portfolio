@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import { LayoutGrid, List } from 'lucide-react';
+
+import { skillRows } from '@/data/tech';
+
 import SkillRow from './helpers/SkillRow';
 import TechIcon from './helpers/TechIcon';
-import { skillRows } from '@/data/tech';
-import { LayoutGrid, List } from 'lucide-react';
 
 export function Skills() {
   const [isInline, setIsInline] = useState(false);
@@ -37,7 +39,7 @@ export function Skills() {
                 {row.items.map((skill) => (
                   <span
                     key={skill.name}
-                    className='inline-flex items-center gap-1.5 whitespace-nowrap rounded-md border border-dashed bg-card px-2.5 py-1.5 text-sm text-foreground transition-colors hover:bg-accent'
+                    className='inline-flex items-center gap-1.5 rounded-md border border-dashed bg-card px-2.5 py-1.5 text-sm whitespace-nowrap text-foreground transition-colors hover:bg-accent'
                   >
                     <TechIcon item={skill} className='h-4 w-4 shrink-0' />
                     {skill.name}

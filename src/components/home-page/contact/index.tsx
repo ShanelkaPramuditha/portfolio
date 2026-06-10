@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import { CalendarDays, Mail, Phone } from 'lucide-react';
+
 import { directContactData } from '@/constants/contact';
-import { Mail, Phone, CalendarDays } from 'lucide-react';
+
 import ContactForm from './contact-form';
 
 const contactLinks = [

@@ -1,6 +1,7 @@
-import { MapPin, Calendar } from 'lucide-react';
-import { experiences } from '@/data/experience';
+import { Calendar, MapPin } from 'lucide-react';
+
 import { LogoImage } from '@/components/home-page/shared/LogoImage';
+import { experiences } from '@/data/experience';
 
 export function Experience() {
   return (
@@ -34,7 +35,7 @@ export function Experience() {
                   {/* Role + company + type badge */}
                   <div className='flex min-w-0 flex-1 flex-col gap-0.5'>
                     <div className='flex flex-wrap items-center justify-between gap-2'>
-                      <p className='text-sm font-medium leading-tight'>{exp.role}</p>
+                      <p className='text-sm leading-tight font-medium'>{exp.role}</p>
                       <span className='shrink-0 rounded-md border border-dashed border-border/70 bg-background px-2 py-0.5 font-mono text-[11px] text-muted-foreground'>
                         {exp.type}
                       </span>

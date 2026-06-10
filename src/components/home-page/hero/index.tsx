@@ -1,8 +1,7 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import { socialMedia } from '@/constants/contact';
-import { data } from '@/constants/data';
+import Image from 'next/image';
+import Link from 'next/link';
 import {
   IconBrandFacebook,
   IconBrandGithub,
@@ -11,16 +10,18 @@ import {
   IconBrandWhatsapp
 } from '@tabler/icons-react';
 import * as motion from 'motion/react-client';
-import Image from 'next/image';
-import Link from 'next/link';
+
+import { Button } from '@/components/ui/button';
+import { socialMedia } from '@/constants/contact';
+import { data } from '@/constants/data';
 
 export function Hero() {
   return (
-    <section id='home' className='flex items-center min-h-[calc(100svh-126px)]'>
+    <section id='home' className='flex min-h-[calc(100svh-126px)] items-center'>
       <div className='w-full py-10 sm:py-16'>
         <div className='flex flex-col items-center gap-8 sm:gap-12 lg:flex-row lg:items-center lg:gap-16'>
           {/* Profile image — CSS animation, no JS dependency */}
-          <div className='shrink-0 animate-in fade-in zoom-in-95 duration-500'>
+          <div className='shrink-0 animate-in duration-500 zoom-in-95 fade-in'>
             <motion.div
               className='rounded-full'
               initial={{ boxShadow: '0 0 10px rgba(59, 130, 246, 0.4)' }}
@@ -39,22 +40,22 @@ export function Hero() {
                 height={280}
                 priority
                 sizes='(max-width: 640px) 192px, (max-width: 1024px) 240px, 280px'
-                className='rounded-full object-cover object-center h-48 w-48 sm:h-60 sm:w-60 lg:h-[280px] lg:w-[280px]'
+                className='h-48 w-48 rounded-full object-cover object-center sm:h-60 sm:w-60 lg:h-[280px] lg:w-[280px]'
               />
             </motion.div>
           </div>
 
           {/* Text content — CSS animations with staggered delays */}
           <div className='flex flex-col items-center gap-5 text-center lg:items-start lg:text-left'>
-            <h1 className='text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight md:text-5xl xl:text-6xl animate-in fade-in slide-in-from-bottom-2 duration-500 delay-75 fill-mode-both'>
+            <h1 className='animate-in text-3xl leading-tight font-extrabold tracking-tight delay-75 duration-500 fill-mode-both fade-in slide-in-from-bottom-2 sm:text-4xl md:text-5xl xl:text-6xl'>
               {data.firstName} {data.lastName}
             </h1>
 
-            <p className='max-w-xl font-light text-muted-foreground md:text-lg animate-in fade-in slide-in-from-bottom-2 duration-500 delay-150 fill-mode-both'>
+            <p className='max-w-xl animate-in font-light text-muted-foreground delay-150 duration-500 fill-mode-both fade-in slide-in-from-bottom-2 md:text-lg'>
               {data.description}
             </p>
 
-            <div className='flex flex-wrap gap-3 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-200 fill-mode-both'>
+            <div className='flex animate-in flex-wrap gap-3 delay-200 duration-500 fill-mode-both fade-in slide-in-from-bottom-2'>
               <Button
                 onClick={() => {
                   const el = document.getElementById('contact');
@@ -77,12 +78,12 @@ export function Hero() {
               </Button>
             </div>
 
-            <ul className='flex items-center gap-1 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-300 fill-mode-both'>
+            <ul className='flex animate-in items-center gap-1 delay-300 duration-500 fill-mode-both fade-in slide-in-from-bottom-2'>
               {socialMedia.map((social, index) => (
                 <li key={index}>
                   <Link
                     href={social.url}
-                    className='flex items-center justify-center h-8 w-8 text-muted-foreground transition-colors hover:text-foreground'
+                    className='flex h-8 w-8 items-center justify-center text-muted-foreground transition-colors hover:text-foreground'
                     target='_blank'
                     rel='noopener noreferrer'
                     aria-label={`${social.name} profile`}

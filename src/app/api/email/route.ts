@@ -1,9 +1,10 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse, type NextRequest } from 'next/server';
 import { Resend } from 'resend';
-import { contactFormSchema } from '@/lib/validations/contact';
+
+import { EMAIL_CONFIG } from '@/constants/configs';
 import ContactFormEmail from '@/emails/contact-form-email';
 import ThankYouEmail from '@/emails/thank-you-email';
-import { EMAIL_CONFIG } from '@/constants/configs';
+import { contactFormSchema } from '@/lib/validations/contact';
 
 let resend: Resend | null = null;
 const getResend = () => (resend ??= new Resend(EMAIL_CONFIG.resend.apiKey));

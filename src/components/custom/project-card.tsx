@@ -1,10 +1,11 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Github, Link as LinkIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+
 import { Skeleton } from '@/components/ui/skeleton';
 import { data } from '@/constants/data';
 
@@ -39,7 +40,7 @@ export function ProjectCard({
   )}`;
 
   return (
-    <div className='group flex flex-col gap-2 rounded-xl border border-dashed border-border/80 bg-card p-2 w-full overflow-hidden transition-colors duration-300 hover:border-border'>
+    <div className='group flex w-full flex-col gap-2 overflow-hidden rounded-xl border border-dashed border-border/80 bg-card p-2 transition-colors duration-300 hover:border-border'>
       {/* Image */}
       <div className='overflow-hidden rounded-lg'>
         <Image
@@ -64,7 +65,7 @@ export function ProjectCard({
       </div>
 
       {/* Tags */}
-      <div className='flex flex-wrap items-center gap-3 px-2 mt-2'>
+      <div className='mt-2 flex flex-wrap items-center gap-3 px-2'>
         {tags.map((tag) => (
           <span key={tag} className='text-xs text-muted-foreground'>
             {tag}
@@ -96,7 +97,7 @@ export function ProjectCard({
         </div>
         <Link
           href={`/projects/${title.toLowerCase()}`}
-          className='font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground'
+          className='font-mono text-xs tracking-widest text-muted-foreground uppercase transition-colors hover:text-foreground'
         >
           Details →
         </Link>
@@ -107,15 +108,15 @@ export function ProjectCard({
 
 export function ProjectCardSkeleton() {
   return (
-    <div className='flex flex-col gap-2 rounded-xl border border-dashed border-border/80 bg-card p-2 w-full overflow-hidden'>
+    <div className='flex w-full flex-col gap-2 overflow-hidden rounded-xl border border-dashed border-border/80 bg-card p-2'>
       {/* Image placeholder — same aspect ratio as the card image (600×300 = 2:1) */}
-      <Skeleton className='w-full aspect-[2/1] rounded-lg' />
-      <div className='mt-2 px-2 space-y-2'>
+      <Skeleton className='aspect-[2/1] w-full rounded-lg' />
+      <div className='mt-2 space-y-2 px-2'>
         <Skeleton className='h-5 w-3/4' />
         <Skeleton className='h-4 w-full' />
         <Skeleton className='h-4 w-5/6' />
       </div>
-      <div className='flex gap-3 px-2 mt-2'>
+      <div className='mt-2 flex gap-3 px-2'>
         <Skeleton className='h-3 w-12' />
       </div>
       <div className='mx-2 h-px bg-border' />

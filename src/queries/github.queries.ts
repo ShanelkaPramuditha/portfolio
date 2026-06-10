@@ -3,10 +3,11 @@
  * TanStack Query hooks for GitHub operations
  */
 
-import { useQuery, UseQueryOptions } from '@tanstack/react-query';
-import { fetchProjects } from '@/services/github.service';
-import { Project } from '@/types/project.types';
+import { useQuery, type UseQueryOptions } from '@tanstack/react-query';
+
 import { data as github } from '@/constants/data';
+import { fetchProjects } from '@/services/github.service';
+import { type Project } from '@/types/project.types';
 
 /**
  * Query key factory for projects

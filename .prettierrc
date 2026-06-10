@@ -7,5 +7,12 @@
   "quoteProps": "as-needed",
   "trailingComma": "none",
   "bracketSpacing": true,
-  "bracketSameLine": false
+  "bracketSameLine": false,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "plugins": ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+  "importOrder": ["^react$", "^next(/.*)?$", "<THIRD_PARTY_MODULES>", "", "^@/(.*)$", "", "^[./]"],
+  "importOrderTypeScriptVersion": "5.0.0",
+  "tailwindStylesheet": "./src/app/styles/globals.css",
+  "tailwindFunctions": ["cn", "cva", "clsx"]
 }

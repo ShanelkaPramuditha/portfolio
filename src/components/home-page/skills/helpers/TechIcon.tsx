@@ -1,4 +1,5 @@
 import { Cloud } from 'lucide-react';
+
 import type { TechItem } from '@/data/tech';
 
 type Props = {

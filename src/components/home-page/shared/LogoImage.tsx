@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export function LogoImage({ src, alt }: { src?: string; alt: string }) {
   const [errored, setErrored] = useState(false);

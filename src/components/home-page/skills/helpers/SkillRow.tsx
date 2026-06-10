@@ -1,8 +1,10 @@
 'use client';
 
 import { memo, useEffect, useRef, useState } from 'react';
-import TechIcon from './TechIcon';
+
 import type { TechItem } from '@/data/tech';
+
+import TechIcon from './TechIcon';
 
 const SkillRow = memo(
   ({
@@ -48,7 +50,7 @@ const SkillRow = memo(
             {skills.map((skill, i) => (
               <span
                 key={i}
-                className='inline-flex items-center gap-1.5 whitespace-nowrap rounded-md border border-dashed bg-card px-2.5 py-1.5 text-sm'
+                className='inline-flex items-center gap-1.5 rounded-md border border-dashed bg-card px-2.5 py-1.5 text-sm whitespace-nowrap'
               >
                 <TechIcon item={skill} className='h-4 w-4 shrink-0' />
                 {skill.name}
@@ -71,7 +73,7 @@ const SkillRow = memo(
               skills.map((skill, i) => (
                 <span
                   key={`${r}-${i}`}
-                  className='inline-flex items-center gap-1.5 whitespace-nowrap rounded-md border border-dashed bg-card px-2.5 py-1.5 text-sm text-foreground transition-colors hover:bg-accent'
+                  className='inline-flex items-center gap-1.5 rounded-md border border-dashed bg-card px-2.5 py-1.5 text-sm whitespace-nowrap text-foreground transition-colors hover:bg-accent'
                 >
                   <TechIcon item={skill} className='h-4 w-4 shrink-0' />
                   {skill.name}

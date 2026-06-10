@@ -4,7 +4,7 @@
  */
 
 import { data as github } from '@/constants/data';
-import { Project, FetchProjectsParams } from '@/types/project.types';
+import { type FetchProjectsParams, type Project } from '@/types/project.types';
 
 const GITHUB_API_URL = 'https://api.github.com';
 const X_GITHUB_API_VERSION = '2022-11-28';

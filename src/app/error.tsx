@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { IconRefresh, IconHome } from '@tabler/icons-react';
 import Link from 'next/link';
+import { IconHome, IconRefresh } from '@tabler/icons-react';
+
+import { Button } from '@/components/ui/button';
 
 export default function Error({
   error,
@@ -20,7 +21,7 @@ export default function Error({
 
   return (
     <div className='flex h-full min-h-[60vh] items-center justify-center px-4'>
-      <div className='max-w-md w-full text-center space-y-6'>
+      <div className='w-full max-w-md space-y-6 text-center'>
         <div className='space-y-2'>
           <p className='text-6xl font-bold text-muted-foreground/30 select-none'>500</p>
           <h1 className='text-2xl font-semibold tracking-tight'>Something went wrong</h1>
@@ -29,7 +30,7 @@ export default function Error({
           </p>
         </div>
 
-        <div className='flex flex-col sm:flex-row gap-3 justify-center'>
+        <div className='flex flex-col justify-center gap-3 sm:flex-row'>
           <Button onClick={reset} variant='default' size='lg'>
             <IconRefresh className='mr-2 h-4 w-4' />
             Try again

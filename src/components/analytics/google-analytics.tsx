@@ -1,4 +1,5 @@
 import Script from 'next/script';
+
 import { ANALYTICS_CONFIG } from '@/constants/configs';
 
 /**
@@ -6,22 +7,22 @@ import { ANALYTICS_CONFIG } from '@/constants/configs';
  * Handles GA4 tracking script injection
  */
 export function GoogleAnalytics() {
-    const { trackingId, enabled } = ANALYTICS_CONFIG.google;
+  const { trackingId, enabled } = ANALYTICS_CONFIG.google;
 
-    // Don't render if tracking is disabled or no tracking ID
-    if (!enabled || !trackingId) {
-        return null;
-    }
+  // Don't render if tracking is disabled or no tracking ID
+  if (!enabled || !trackingId) {
+    return null;
+  }
 
-    return (
-        <>
-            {/* Google Analytics Script */}
-            <Script
-                src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`}
-                strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-                {`
+  return (
+    <>
+      {/* Google Analytics Script */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`}
+        strategy='afterInteractive'
+      />
+      <Script id='google-analytics' strategy='afterInteractive'>
+        {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
@@ -29,7 +30,7 @@ export function GoogleAnalytics() {
             page_path: window.location.pathname,
           });
         `}
-            </Script>
-        </>
-    );
+      </Script>
+    </>
+  );
 }

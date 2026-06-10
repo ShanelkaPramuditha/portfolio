@@ -1,5 +1,4 @@
-import { socialMedia } from '@/constants/contact';
-import { data } from '@/constants/data';
+import Link from 'next/link';
 import {
   IconBrandFacebook,
   IconBrandGithub,
@@ -7,12 +6,14 @@ import {
   IconBrandTelegram,
   IconBrandWhatsapp
 } from '@tabler/icons-react';
-import Link from 'next/link';
+
+import { socialMedia } from '@/constants/contact';
+import { data } from '@/constants/data';
 
 export function Footer() {
   return (
-    <footer className='w-full border-t border-border/40 mt-10'>
-      <div className='mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-4 flex flex-col-reverse items-center gap-3 sm:flex-row sm:justify-between'>
+    <footer className='mt-10 w-full border-t border-border/40'>
+      <div className='mx-auto flex max-w-4xl flex-col-reverse items-center gap-3 px-4 py-4 sm:flex-row sm:justify-between sm:px-6 lg:px-8'>
         <span className='text-xs text-muted-foreground'>
           &copy; {new Date().getFullYear()}{' '}
           <Link href={data.developerSite} className='hover:underline'>
@@ -24,7 +25,7 @@ export function Footer() {
             <li key={index}>
               <Link
                 href={social.url}
-                className='flex items-center justify-center h-8 w-8 text-muted-foreground transition-colors hover:text-foreground'
+                className='flex h-8 w-8 items-center justify-center text-muted-foreground transition-colors hover:text-foreground'
                 target='_blank'
                 rel='noopener noreferrer'
                 aria-label={`${social.name} profile`}

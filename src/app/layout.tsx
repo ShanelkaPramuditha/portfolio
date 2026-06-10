@@ -1,13 +1,15 @@
-import { Footer } from '@/components/partials/footer';
-import { Header } from '@/components/partials/header';
-import { ThemeProvider } from '@/components/providers/theme-provider';
-import { QueryProvider } from '@/components/providers/query-provider';
-import { GoogleAnalytics } from '@/components/analytics/google-analytics';
-import { Toaster } from '@/components/ui/sonner';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+
+import { GoogleAnalytics } from '@/components/analytics/google-analytics';
+import { Footer } from '@/components/partials/footer';
+import { Header } from '@/components/partials/header';
+import { QueryProvider } from '@/components/providers/query-provider';
+import { ThemeProvider } from '@/components/providers/theme-provider';
+import { Toaster } from '@/components/ui/sonner';
+
 import './styles/globals.css';
 
 const geistSans = Geist({
@@ -144,9 +146,9 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <QueryProvider>
           <ThemeProvider>
-            <div className='relative min-h-screen flex flex-col'>
+            <div className='relative flex min-h-screen flex-col'>
               <Header />
-              <main className='flex-1 w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-4'>
+              <main className='mx-auto w-full max-w-4xl flex-1 px-4 py-4 sm:px-6 lg:px-8'>
                 {children}
               </main>
               <Footer />

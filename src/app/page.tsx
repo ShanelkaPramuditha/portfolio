@@ -1,9 +1,9 @@
-import { Skills } from '@/components/home-page/skills';
-import { Hero } from '@/components/home-page/hero';
-import { Experience } from '@/components/home-page/experience';
-import { Education } from '@/components/home-page/education';
-import { Projects } from '@/components/home-page/projects';
 import { Contact } from '@/components/home-page/contact';
+import { Education } from '@/components/home-page/education';
+import { Experience } from '@/components/home-page/experience';
+import { Hero } from '@/components/home-page/hero';
+import { Projects } from '@/components/home-page/projects';
+import { Skills } from '@/components/home-page/skills';
 import { Separator } from '@/components/ui/separator';
 
 export default function Home() {

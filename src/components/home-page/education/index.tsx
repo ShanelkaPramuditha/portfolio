@@ -1,6 +1,7 @@
-import { MapPin, Calendar } from 'lucide-react';
-import { educations } from '@/data/education';
+import { Calendar, MapPin } from 'lucide-react';
+
 import { LogoImage } from '@/components/home-page/shared/LogoImage';
+import { educations } from '@/data/education';
 
 export function Education() {
   return (
@@ -31,7 +32,7 @@ export function Education() {
 
                   {/* Institution + degree */}
                   <div className='flex min-w-0 flex-1 flex-col gap-0.5'>
-                    <p className='text-sm font-medium leading-tight'>{edu.institution}</p>
+                    <p className='text-sm leading-tight font-medium'>{edu.institution}</p>
                     <p className='text-sm text-muted-foreground'>{edu.degree}</p>
                   </div>
                 </div>

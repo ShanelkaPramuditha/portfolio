@@ -4,9 +4,7 @@
   "service": "app",
   "workspaceFolder": "/workspaces/portfolio",
   "postCreateCommand": "pnpm install",
-  "forwardPorts": [
-    3000
-  ],
+  "forwardPorts": [3000],
   "portsAttributes": {
     "3000": {
       "label": "Next.js Dev Server",
@@ -38,14 +36,8 @@
         },
         "js/ts.preferences.importModuleSpecifier": "non-relative",
         "tailwindCSS.experimental.classRegex": [
-          [
-            "cva\\(([^)]*)\\)",
-            "[\"'`]([^\"'`]*).*?[\"'`]"
-          ],
-          [
-            "cx\\(([^)]*)\\)",
-            "(?:'|\"|`)([^']*)(?:'|\"|`)"
-          ]
+          ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+          ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
         ]
       }
     }

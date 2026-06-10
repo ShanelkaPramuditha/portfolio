@@ -1,8 +1,9 @@
 'use client';
 
+import Link from 'next/link';
+
 import { ProjectCard, ProjectCardSkeleton } from '@/components/custom/project-card';
 import { useProjects } from '@/queries/github.queries';
-import Link from 'next/link';
 
 export function Projects() {
   const { data: projects, isPending } = useProjects(6, 1);
@@ -13,7 +14,7 @@ export function Projects() {
         <h2 className='text-2xl font-light tracking-tight sm:text-3xl'>Projects</h2>
         <Link
           href='/projects'
-          className='font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground'
+          className='font-mono text-xs tracking-widest text-muted-foreground uppercase transition-colors hover:text-foreground'
         >
           View all →
         </Link>

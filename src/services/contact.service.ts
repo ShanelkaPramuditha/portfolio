@@ -3,7 +3,7 @@
  * Handles all contact-related API calls
  */
 
-import { ContactFormValues } from '@/lib/validations/contact';
+import { type ContactFormValues } from '@/lib/validations/contact';
 
 export type ContactEmailResponse = {
   message: string;

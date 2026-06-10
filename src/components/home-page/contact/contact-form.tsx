@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { IconDeviceMobile, IconMail, IconUser, IconSend } from '@tabler/icons-react';
-import { toast } from 'sonner';
+import { IconDeviceMobile, IconMail, IconSend, IconUser } from '@tabler/icons-react';
 import { Loader2 } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -18,9 +18,9 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { analytics } from '@/lib/analytics';
 import { contactFormSchema, type ContactFormValues } from '@/lib/validations/contact';
 import { useSendContactEmail } from '@/queries/contact.queries';
-import { analytics } from '@/lib/analytics';
 
 const ContactForm: React.FC = () => {
   const [counter, setCounter] = useState(20);
@@ -70,7 +70,7 @@ const ContactForm: React.FC = () => {
   const isSubmitted = mutation.isSuccess && counter > 0;
 
   return (
-    <div className='w-full mx-auto'>
+    <div className='mx-auto w-full'>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
           {/* Full Name Field */}
@@ -82,7 +82,7 @@ const ContactForm: React.FC = () => {
                 <FormLabel>Full Name</FormLabel>
                 <FormControl>
                   <div className='relative'>
-                    <IconUser size={20} className='absolute left-3 top-1/2 -translate-y-1/2' />
+                    <IconUser size={20} className='absolute top-1/2 left-3 -translate-y-1/2' />
                     <Input
                       placeholder='John Doe'
                       disabled={isSubmitted || mutation.isPending}
@@ -105,7 +105,7 @@ const ContactForm: React.FC = () => {
                 <FormLabel>Email</FormLabel>
                 <FormControl>
                   <div className='relative'>
-                    <IconMail size={20} className='absolute left-3 top-1/2 -translate-y-1/2' />
+                    <IconMail size={20} className='absolute top-1/2 left-3 -translate-y-1/2' />
                     <Input
                       type='email'
                       placeholder='john@example.com'
@@ -133,7 +133,7 @@ const ContactForm: React.FC = () => {
                   <div className='relative'>
                     <IconDeviceMobile
                       size={20}
-                      className='absolute left-3 top-1/2 -translate-y-1/2'
+                      className='absolute top-1/2 left-3 -translate-y-1/2'
                     />
                     <Input
                       type='tel'
