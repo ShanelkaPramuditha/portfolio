@@ -5,14 +5,45 @@ import ContactFormEmail from '@/emails/contact-form-email';
 import ThankYouEmail from '@/emails/thank-you-email';
 import { EMAIL_CONFIG } from '@/constants/configs';
 
-const resend = new Resend(EMAIL_CONFIG.resend.apiKey);
+let resend: Resend | null = null;
+const getResend = () => (resend ??= new Resend(EMAIL_CONFIG.resend.apiKey));
 
 const isDev = process.env.NODE_ENV === 'development';
 const log = (...args: unknown[]) => isDev && console.error(...args);
 const warn = (...args: unknown[]) => isDev && console.warn(...args);
 
+// In-memory rate limit: best-effort per server instance
+const RATE_LIMIT_MAX = 3;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const requestLog = new Map<string, number[]>();
+
+const isRateLimited = (ip: string) => {
+  const now = Date.now();
+  const recent = (requestLog.get(ip) ?? []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+  if (recent.length >= RATE_LIMIT_MAX) {
+    requestLog.set(ip, recent);
+    return true;
+  }
+  recent.push(now);
+  requestLog.set(ip, recent);
+  if (requestLog.size > 1000) {
+    for (const [key, times] of requestLog) {
+      if (times.every((t) => now - t >= RATE_LIMIT_WINDOW_MS)) requestLog.delete(key);
+    }
+  }
+  return false;
+};
+
 export async function POST(request: NextRequest) {
   try {
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again later.' },
+        { status: 429 }
+      );
+    }
+
     const body = await request.json();
 
     const validationResult = contactFormSchema.safeParse(body);
@@ -28,10 +59,16 @@ export async function POST(request: NextRequest) {
 
     const { fullName, email, mobile, message } = validationResult.data;
 
-    if (!EMAIL_CONFIG.resend.fromEmail || !EMAIL_CONFIG.resend.toEmail) {
+    if (
+      !EMAIL_CONFIG.resend.apiKey ||
+      !EMAIL_CONFIG.resend.fromEmail ||
+      !EMAIL_CONFIG.resend.toEmail
+    ) {
       log('Missing email configuration');
       return NextResponse.json({ error: 'Email service not configured' }, { status: 500 });
     }
+
+    const resend = getResend();
 
     const notificationEmail = resend.emails.send({
       from: EMAIL_CONFIG.resend.fromEmail,

@@ -16,9 +16,9 @@ import Link from 'next/link';
 
 export function Hero() {
   return (
-    <section id='home' className='flex items-center min-h-[calc(100vh-126px)]'>
-      <div className='w-full py-16'>
-        <div className='flex flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-16'>
+    <section id='home' className='flex items-center min-h-[calc(100svh-126px)]'>
+      <div className='w-full py-10 sm:py-16'>
+        <div className='flex flex-col items-center gap-8 sm:gap-12 lg:flex-row lg:items-center lg:gap-16'>
           {/* Profile image — CSS animation, no JS dependency */}
           <div className='shrink-0 animate-in fade-in zoom-in-95 duration-500'>
             <motion.div
@@ -38,14 +38,15 @@ export function Hero() {
                 width={280}
                 height={280}
                 priority
-                className='rounded-full object-cover object-center'
+                sizes='(max-width: 640px) 192px, (max-width: 1024px) 240px, 280px'
+                className='rounded-full object-cover object-center h-48 w-48 sm:h-60 sm:w-60 lg:h-[280px] lg:w-[280px]'
               />
             </motion.div>
           </div>
 
           {/* Text content — CSS animations with staggered delays */}
           <div className='flex flex-col items-center gap-5 text-center lg:items-start lg:text-left'>
-            <h1 className='text-4xl font-extrabold tracking-tight leading-tight md:text-5xl xl:text-6xl animate-in fade-in slide-in-from-bottom-2 duration-500 delay-75 fill-mode-both'>
+            <h1 className='text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight md:text-5xl xl:text-6xl animate-in fade-in slide-in-from-bottom-2 duration-500 delay-75 fill-mode-both'>
               {data.firstName} {data.lastName}
             </h1>
 
